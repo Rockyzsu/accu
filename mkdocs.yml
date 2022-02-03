@@ -141,6 +141,7 @@ nav:
         - 杂项/蒙哥马利约分算法: content/misc/montgomery.md
         - 杂项/Dlib 人脸识别: content/misc/dlib.md
         - 杂项/RC4: content/misc/rc4.md
+        - 杂项/谷歌两步验证算法实现: content/misc/2fa.md
         - 杂项/生命游戏: content/misc/game_of_life/overview.md
         - 杂项/算法心得笔记: content/misc/hackers_delight.md
         - 杂项/EVM: content/misc/evm.md
