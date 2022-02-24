@@ -152,6 +152,7 @@ nav:
         - 杂项/Matplotlib: content/misc/matplotlib.md
         - 杂项/时间的终结: content/misc/end_of_time.md
         - 杂项/令牌桶算法限流: content/misc/token_bucket.md
+        - 杂项/RISC-V 工具链: content/misc/riscv_toolchains.md
         - 杂项/Python f-strings: content/misc/python_f_strings.md
         - 杂项/Python Windows 编程: content/misc/python_windows.md
         - 杂项/Python Pypi: content/misc/python_pypi.md
