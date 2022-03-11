@@ -29,6 +29,9 @@ R *.ftx.com
 R   huobi.com
 R *.huobi.com
 
+R   reddit.com
+R *.reddit.com
+
 R   twimg.com
 R *.twimg.com
 R   twitter.com
