@@ -32,6 +32,9 @@ R *.huobi.com
 R   reddit.com
 R *.reddit.com
 
+R   tradingview.com
+R *.tradingview.com
+
 R   twimg.com
 R *.twimg.com
 R   twitter.com
