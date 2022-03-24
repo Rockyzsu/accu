@@ -139,6 +139,7 @@ nav:
         - 杂项/我们如何通过模糊测试保证 CKB VM 的正确性(中文): content/misc/fuzzing_ckb_vm_cn.md
         - 杂项/我们如何通过模糊测试保证 CKB VM 的正确性(英文): content/misc/fuzzing_ckb_vm_en.md
         - 杂项/CKB-VM 的 ASM 执行模式简介: content/misc/ckb_vm_asm.md
+        - 杂项/CKB-VM 代码结构介绍: content/misc/ckb_vm_machine.md
         - 杂项/蒙哥马利约分算法: content/misc/montgomery.md
         - 杂项/Dlib 人脸识别: content/misc/dlib.md
         - 杂项/RC4: content/misc/rc4.md
