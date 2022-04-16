@@ -130,6 +130,8 @@ nav:
         - 圣杯/追寻之路: content/sangreal/overview.md
         - 圣杯/网格交易: content/sangreal/grid.md
         - 圣杯/马丁格尔爆仓之路: content/sangreal/martingale.md
+- AHK:
+        - AHK/安装和使用: content/ahk/overview.md
 - 杂项:
         - 杂项/演讲 minits, 以 LLVM 为后端的 TypeScript 静态编译器: content/misc/minits.md
         - 杂项/演讲 WASC, WebAssembly 到 RISC-V 的 AOT 编译器(中文): content/misc/wasc_cn.md
@@ -148,7 +150,6 @@ nav:
         - 杂项/算法心得笔记: content/misc/hackers_delight.md
         - 杂项/EVM: content/misc/evm.md
         - 杂项/Merkle Tree: content/misc/merkle_tree.md
-        - 杂项/AHK: content/misc/ahk.md
         - 杂项/图像风格转移: content/misc/neural_style_transfer.md
         - 杂项/霍夫曼编码: content/misc/huffman.md
         - 杂项/Matplotlib: content/misc/matplotlib.md
