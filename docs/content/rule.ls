@@ -31,6 +31,8 @@ R *.huobi.com
 
 R   reddit.com
 R *.reddit.com
+R   redd.it
+R *.redd.it
 
 R   tradingview.com
 R *.tradingview.com
