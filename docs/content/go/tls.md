@@ -1,4 +1,4 @@
-# 杂项/Go TLS
+# Go/TLS
 
 传输层安全协议(英语: Transport Layer Security, 缩写: TLS), 及其前身安全套接层(Secure Sockets Layer, 缩写: SSL)是一种安全协议, 目的是为互联网通信, 提供安全及数据完整性保障.
 

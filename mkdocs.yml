@@ -115,6 +115,17 @@ nav:
         - JIT 编译器原理简述/原理简述: content/jit_tour/principle.md
         - JIT 编译器原理简述/实现 Brainfuck 解释器与 IR 优化: content/jit_tour/brainfuck_interpreter.md
         - JIT 编译器原理简述/实现 Brainfuck JIT 编译器: content/jit_tour/brainfuck_jit.md
+- Python:
+        - Python/f-strings: content/python/f_strings.md
+        - Python/Windows 编程: content/python/windows.md
+        - Python/Pypi: content/python/pypi.md
+- Go:
+        - Go/按行读取文件: content/go/read_line.md
+        - Go/Socket 编程: content/go/socket.md
+        - Go/Socket 假如服务端不调用 Accept: content/go/socket_not_accept.md
+        - Go/TLS: content/go/tls.md
+        - Go/目录监听: content/go/fswatch.md
+        - Go/Cgo: content/go/cgo.md
 - Rust 速成课:
         - Rust 速成课/概览: content/rust_crash/overview.md
         - Rust 速成课/开发环境搭建: content/rust_crash/env.md
@@ -133,11 +144,11 @@ nav:
 - AHK:
         - AHK/安装和使用: content/ahk/overview.md
 - 杂项:
-        - 杂项/演讲 minits, 以 LLVM 为后端的 TypeScript 静态编译器: content/misc/minits.md
-        - 杂项/演讲 WASC, WebAssembly 到 RISC-V 的 AOT 编译器(中文): content/misc/wasc_cn.md
-        - 杂项/演讲 WASC, WebAssembly 到 RISC-V 的 AOT 编译器(英文): content/misc/wasc_en.md
-        - 杂项/演讲 CKB VM B 扩展指令集与宏指令融合: content/misc/ckb_vm_b_extension_and_mop.md
-        - 杂项/演讲 RISC-V 在区块链智能及云原生中的应用, 机遇与挑战: content/misc/riscv_and_ckb_vm.md
+        - 杂项/minits, 以 LLVM 为后端的 TypeScript 静态编译器: content/misc/minits.md
+        - 杂项/WASC, WebAssembly 到 RISC-V 的 AOT 编译器(中文): content/misc/wasc_cn.md
+        - 杂项/WASC, WebAssembly 到 RISC-V 的 AOT 编译器(英文): content/misc/wasc_en.md
+        - 杂项/CKB VM B 扩展指令集与宏指令融合: content/misc/ckb_vm_b_extension_and_mop.md
+        - 杂项/RISC-V 在区块链智能及云原生中的应用, 机遇与挑战: content/misc/riscv_and_ckb_vm.md
         - 杂项/我们如何通过模糊测试保证 CKB VM 的正确性(中文): content/misc/fuzzing_ckb_vm_cn.md
         - 杂项/我们如何通过模糊测试保证 CKB VM 的正确性(英文): content/misc/fuzzing_ckb_vm_en.md
         - 杂项/CKB-VM 的 ASM 执行模式简介: content/misc/ckb_vm_asm.md
@@ -156,15 +167,6 @@ nav:
         - 杂项/时间的终结: content/misc/end_of_time.md
         - 杂项/令牌桶算法限流: content/misc/token_bucket.md
         - 杂项/RISC-V 工具链: content/misc/riscv_toolchains.md
-        - 杂项/Python f-strings: content/misc/python_f_strings.md
-        - 杂项/Python Windows 编程: content/misc/python_windows.md
-        - 杂项/Python Pypi: content/misc/python_pypi.md
-        - 杂项/Go 按行读取文件: content/misc/go_read_line.md
-        - 杂项/Go Socket 编程: content/misc/go_socket.md
-        - 杂项/Go Socket 假如服务端不调用 Accept: content/misc/go_socket_not_accept.md
-        - 杂项/Go TLS: content/misc/go_tls.md
-        - 杂项/Go 目录监听: content/misc/go_fswatch.md
-        - 杂项/Go Cgo: content/misc/go_cgo.md
 - 竹书纪年:
         - Y2019: content/diary/2019.md
         - Y2020: content/diary/2020.md

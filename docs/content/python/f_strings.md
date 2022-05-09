@@ -1,4 +1,4 @@
-# 杂项/Python f-strings
+# Python/f-strings
 
 f-strings 是 Python 3.6 新增的功能. 这里简要摘录一下 f-strings 语法避免遗忘.它的标准语法非常简单, 理解为待格式化字符串的 `{}` 将会被当作 Python 代码求值即可.
 

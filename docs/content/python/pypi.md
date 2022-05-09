@@ -1,4 +1,4 @@
-# 杂项/Python Pypi
+# Python/Pypi
 
 官方教程: [https://packaging.python.org/tutorials/distributing-packages/](https://packaging.python.org/tutorials/distributing-packages/)
 
