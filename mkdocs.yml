@@ -167,7 +167,6 @@ nav:
         - 杂项/时间的终结: content/misc/end_of_time.md
         - 杂项/令牌桶算法限流: content/misc/token_bucket.md
         - 杂项/RISC-V 工具链: content/misc/riscv_toolchains.md
-        - 杂项/翻墙软件的协议设计: content/misc/breakwall.md
 - 竹书纪年:
         - Y2019: content/diary/2019.md
         - Y2020: content/diary/2020.md
