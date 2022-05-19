@@ -20,13 +20,23 @@
 
 设 `N > 1`, 选一个 `R > N` 且 `gcd(R, N) = 1`. 则必然存在 `R⁻¹`, `N⁻¹` 满足:
 
+- `0 < R⁻¹ < N`
+- `0 < N⁻¹ < R`
+- `R * R⁻¹ - N * N⁻¹ = 1`
+
+根据 `R * R⁻¹ - N * N⁻¹ = 1` 可知 R⁻¹ 是 R 的模 N 逆元, N⁻¹ 是 -N 的模 R 逆元, 即:
+
+- `R * R⁻¹ % N = 1`
+- `-N * N⁻¹ % R = 1`
+- `(R - N) * N⁻¹ % R = 1`, 证明过程如下
+
 ```text
-R * R⁻¹ % N = 1
-R * R⁻¹ - N * N⁻¹ = 1
--N * N⁻¹ % R = 1
-(R - N) * N⁻¹ % R = 1
-0 < R⁻¹ < N
-0 < N⁻¹ < R
+(R - N) * N⁻¹ % R
+    = (R * N⁻¹ - N * N⁻¹) % R
+    = (R * N⁻¹ % R - N * N⁻¹ % R) % R
+    = (-N * N⁻¹ % R) % R
+    = 1 % R
+    = 1
 ```
 
 定义蒙哥马利约分(Montgomery Reduction): `REDC(T) = TR⁻¹ % N`, 其中 `0 <= T < NR`, 则其通用计算过程伪代码如下:
@@ -50,14 +60,19 @@ X' = X * R % N
    = REDC(X * (R * R % N))
 ```
 
+对于模乘 `a * b % n`, 可以转换为 `REDC(REDC(a' * b'))`, 其中 `a'` 与 `b'` 为各自的蒙哥马利剩余, 证明如下:
+
 ```text
 c  = a * b % N
 
 a' = a * R % N
 b' = b * R % N
-c' = (a' * b') * R⁻¹ % N
+c' = (a * b % N) * R % N
+   = (a * b % N) * R * R * R⁻¹ % N
+   = (a * R % N) * (b * R % N) * R⁻¹ % N
+   = (a' * b') * R⁻¹ % N
    = REDC(a' * b')
-c  = c' * R⁻¹ % n
+c  = c' * R⁻¹ % N
    = REDC(c')
    = REDC(REDC(a' * b'))
 ```
@@ -87,6 +102,7 @@ R_POW2 = R * R % N
 
 
 def redc(T):
+    # REDC(T) = TR⁻¹ % N
     assert 0 <= T < R * N
     m = (T * N_INVERSE) % R
     t = (T + m * N) // R
@@ -110,4 +126,12 @@ def fuzz():
         a = random.randint(0, (2**256) - 1)
         b = random.randint(0, (2**256) - 1)
         assert (a * b) % N == redc(redc(conv(a) * conv(b)))
+
+if __name__ == '__main__':
+    fuzz()
 ```
+
+## 参考
+
+- Peter L. Montgomery, Modular Multiplication Without Trial Division, [https://www.ams.org/journals/mcom/1985-44-170/S0025-5718-1985-0777282-X/S0025-5718-1985-0777282-X.pdf](https://www.ams.org/journals/mcom/1985-44-170/S0025-5718-1985-0777282-X/S0025-5718-1985-0777282-X.pdf)
+- Eric Schorn, Optimizing Pairing-Based Cryptography: Montgomery Arithmetic in Rust, [https://research.nccgroup.com/2021/06/09/optimizing-pairing-based-cryptography-montgomery-arithmetic-in-rust/](https://research.nccgroup.com/2021/06/09/optimizing-pairing-based-cryptography-montgomery-arithmetic-in-rust/)

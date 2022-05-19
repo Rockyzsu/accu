@@ -9,6 +9,9 @@ $ sudo apt install autoconf automake autotools-dev libmpc-dev libmpfr-dev libgmp
 
 $ git clone https://github.com/riscv/riscv-gnu-toolchain
 $ cd riscv-gnu-toolchain
+# 添加参数 --with-arch 可以选择要编译的指令集扩展
+#   --with-arch=rv64gc
+#   --with-arch=rv64imacb
 $ ./configure --prefix=/home/ubuntu/app/riscv
 $ make
 ```
