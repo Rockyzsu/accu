@@ -131,7 +131,32 @@ if __name__ == '__main__':
     fuzz()
 ```
 
+其中, 上述代码中的 `R_INVERSE` 和 `N_INVERSE` 可由 Extended euclidean algorithm 算法求出:
+
+```py
+N = 0x30644e72e131a029b85045b68181585d97816a916871ca8d3c208c16d87cfd47
+R = 2 ** 256
+
+def extend_gcd(a, b):
+    # https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm
+    previous_x, x = 1, 0
+    previous_y, y = 0, 1
+    while b:
+        q = a // b
+        x, previous_x = previous_x - q * x, x
+        y, previous_y = previous_y - q * y, y
+        a, b = b, a % b
+    return a, previous_x, previous_y
+
+_, RP, NP = extend_gcd(R, N)
+R_INVERSE = RP + N
+N_INVERSE = -1 * (NP - R)
+assert R_INVERSE == 0x2e67157159e5c639cf63e9cfb74492d9eb2022850278edf8ed84884a014afa37
+assert N_INVERSE == 0xf57a22b791888c6bd8afcbd01833da809ede7d651eca6ac987d20782e4866389
+```
+
 ## 参考
 
 - Peter L. Montgomery, Modular Multiplication Without Trial Division, [https://www.ams.org/journals/mcom/1985-44-170/S0025-5718-1985-0777282-X/S0025-5718-1985-0777282-X.pdf](https://www.ams.org/journals/mcom/1985-44-170/S0025-5718-1985-0777282-X/S0025-5718-1985-0777282-X.pdf)
+- Wikipedia, Extended_Euclidean_algorithm, [https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm)
 - Eric Schorn, Optimizing Pairing-Based Cryptography: Montgomery Arithmetic in Rust, [https://research.nccgroup.com/2021/06/09/optimizing-pairing-based-cryptography-montgomery-arithmetic-in-rust/](https://research.nccgroup.com/2021/06/09/optimizing-pairing-based-cryptography-montgomery-arithmetic-in-rust/)
