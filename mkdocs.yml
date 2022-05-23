@@ -141,6 +141,7 @@ nav:
         - 圣杯/追寻之路: content/sangreal/overview.md
         - 圣杯/网格交易: content/sangreal/grid.md
         - 圣杯/马丁格尔爆仓之路: content/sangreal/martingale.md
+        - 圣杯/双均线策略: content/sangreal/sma.md
 - AHK:
         - AHK/安装和使用: content/ahk/overview.md
 - 杂项:
