@@ -4,6 +4,9 @@ B nsclick.baidu.com
 B   cnzz.com
 B *.cnzz.com
 
+L   steamstatic.com
+L *.steamstatic.com
+
 R   binance.com
 R *.binance.com
 R   binance.me
