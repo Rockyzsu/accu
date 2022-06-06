@@ -439,3 +439,30 @@ plt.show()
 ```
 
 ![img](/img/misc/matplotlib/pie_3.png)
+
+## 涂鸦
+
+这一小节记录一些较为特殊的作图方式.
+
+**Secp256k1 椭圆曲线**
+
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+plt.style.use('seaborn')
+plt.figure(figsize=(4.8, 3.6))
+
+fig = plt.subplot()
+y, x = np.ogrid[-5:5:100j, -5:5:100j]
+fig.contour(x.ravel(), y.ravel(), y**2 - x**3 - 7, [0])
+
+fig.spines['bottom'].set_color('#646882')
+fig.spines['bottom'].set_linewidth(1)
+fig.spines['bottom'].set_position(('data', 0))
+fig.spines['left'].set_color('#646882')
+fig.spines['left'].set_linewidth(1)
+fig.spines['left'].set_position(('data', 0))
+plt.show()
+```
+
+![img](/img/misc/matplotlib/secp256k1.jpg)
