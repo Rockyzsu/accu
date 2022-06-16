@@ -137,8 +137,9 @@ if __name__ == '__main__':
 N = 0x30644e72e131a029b85045b68181585d97816a916871ca8d3c208c16d87cfd47
 R = 2 ** 256
 
-def extend_gcd(a, b):
-    # https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm
+def egcd(a, b):
+    # returns (gcd(a, b), an, bn), that gcd(a, b) == a * ap + b * bp
+    # see https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm
     previous_x, x = 1, 0
     previous_y, y = 0, 1
     while b:
@@ -148,9 +149,9 @@ def extend_gcd(a, b):
         a, b = b, a % b
     return a, previous_x, previous_y
 
-_, RP, NP = extend_gcd(R, N)
-R_INVERSE = RP + N
-N_INVERSE = -1 * (NP - R)
+_, RP, NP = egcd(R, N)
+R_INVERSE = N + RP # make 0 < R_INVERSE < N
+N_INVERSE = R - NP # make 0 < N_INVERSE < R
 assert R_INVERSE == 0x2e67157159e5c639cf63e9cfb74492d9eb2022850278edf8ed84884a014afa37
 assert N_INVERSE == 0xf57a22b791888c6bd8afcbd01833da809ede7d651eca6ac987d20782e4866389
 ```

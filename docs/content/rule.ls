@@ -37,6 +37,9 @@ R *.reddit.com
 R   redd.it
 R *.redd.it
 
+R   thepiratebay.org
+R *.thepiratebay.org
+
 R   tradingview.com
 R *.tradingview.com
 
