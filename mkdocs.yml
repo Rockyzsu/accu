@@ -144,6 +144,7 @@ nav:
         - 圣杯/双均线策略: content/sangreal/sma.md
 - AHK:
         - AHK/安装和使用: content/ahk/overview.md
+        - AHK/在一个热键上开启或关闭: content/ahk/toggle.md
 - 杂项:
         - 杂项/minits, 以 LLVM 为后端的 TypeScript 静态编译器: content/misc/minits.md
         - 杂项/WASC, WebAssembly 到 RISC-V 的 AOT 编译器(中文): content/misc/wasc_cn.md
