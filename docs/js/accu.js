@@ -1,9 +1,7 @@
 $(document).ready(function () {
-    $(function () {
-        if ($('li.current').length) {
-            $('.wy-nav-side').scrollTop(
-                $('li.current').offset().top - $('.wy-nav-side').offset().top - 90
-            );
-        }
-    });
+    if ($('li.current').length) {
+        $('.wy-side-scroll').scrollTop(
+            $('li.current').offset().top - $('.wy-side-scroll').offset().top - 120
+        );
+    }
 })

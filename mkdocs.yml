@@ -10,7 +10,7 @@ repo_url: https://github.com/mohanson/accu
 plugins: []
 nav:
 - 主页: index.md
-# - 个人信息: content/resume.md
+- 作者: content/resume.md
 - 数字图像处理:
         - 数字图像处理/通道: content/pil/channel.md
         - 数字图像处理/均值: content/pil/mean.md
