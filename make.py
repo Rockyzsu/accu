@@ -13,7 +13,6 @@ def call(command):
 
 def make():
     call('mkdocs build -d site_build')
-    call('echo > site_build/js/theme.js')
     call('rm -rf site')
     call('mv site_build site')
     call('echo -n "Pem1L7uAVI" > site/baidu_verify_Pem1L7uAVI.html')
