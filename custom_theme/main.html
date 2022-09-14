@@ -1,3 +1,5 @@
+<!-- https://squidfunk.github.io/mkdocs-material/customization/#overriding-blocks -->
+
 {% extends "base.html" %}
 
 {% block styles %}
@@ -7,7 +9,6 @@
 
 {% block libs %}
     {{ super() }}
-    <script src="/js/accu.js" defer></script>
     <script data-ad-client="ca-pub-5236818090688638" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 {% endblock %}
 
@@ -32,4 +33,9 @@
         data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     {{ super() }}
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="/js/accu.js" defer></script>
 {% endblock %}
