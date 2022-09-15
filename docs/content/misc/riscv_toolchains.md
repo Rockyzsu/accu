@@ -11,7 +11,7 @@ $ git clone https://github.com/riscv/riscv-gnu-toolchain
 $ cd riscv-gnu-toolchain
 # 添加参数 --with-arch 可以选择要编译的指令集扩展
 #   --with-arch=rv64gc
-#   --with-arch=rv64imacb
+#   --with-arch=rv64imac_zba_zbb_zbc_zbs
 $ ./configure --prefix=/home/ubuntu/app/riscv
 $ make
 ```
