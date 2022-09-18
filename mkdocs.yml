@@ -142,6 +142,7 @@ nav:
         - 圣杯/网格交易: content/sangreal/grid.md
         - 圣杯/马丁格尔爆仓之路: content/sangreal/martingale.md
         - 圣杯/双均线策略: content/sangreal/sma.md
+        - 圣杯/阻力支撑相对强度指标: content/sangreal/rsrs.md
 - AHK:
         - AHK/安装和使用: content/ahk/overview.md
         - AHK/在一个热键上开启或关闭: content/ahk/toggle.md
