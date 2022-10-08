@@ -4,9 +4,6 @@ B nsclick.baidu.com
 B   cnzz.com
 B *.cnzz.com
 
-L   steamstatic.com
-L *.steamstatic.com
-
 R   binance.com
 R *.binance.com
 R   binance.me
@@ -19,6 +16,12 @@ R *.discordapp.com
 R  .discordapp.net
 R *.discordapp.net
 
+R   ftx.com
+R *.ftx.com
+
+R   github.com
+R *.github.com
+
 R   google.cn
 R *.google.cn
 R   google.com
@@ -26,8 +29,8 @@ R *.google.com
 R   googleapis.com
 R *.googleapis.com
 
-R   ftx.com
-R *.ftx.com
+R   hackmd.io
+R *.hackmd.io
 
 R   huobi.com
 R *.huobi.com
@@ -36,6 +39,9 @@ R   reddit.com
 R *.reddit.com
 R   redd.it
 R *.redd.it
+
+L   steamstatic.com
+L *.steamstatic.com
 
 R   thepiratebay.org
 R *.thepiratebay.org
