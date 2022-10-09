@@ -117,6 +117,7 @@ nav:
         - JIT 编译器原理简述/实现 Brainfuck JIT 编译器: content/jit_tour/brainfuck_jit.md
 - Cryptography:
         - Cryptography/椭圆曲线: content/cryptography/ecc.md
+        - Cryptography/椭圆曲线签名与验签: content/cryptography/ecdsa.md
 - Python:
         - Python/f-strings: content/python/f_strings.md
         - Python/Windows 编程: content/python/windows.md

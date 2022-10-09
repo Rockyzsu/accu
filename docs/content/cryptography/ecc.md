@@ -110,6 +110,11 @@ P = 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f
 N = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
 G_X = 0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
 G_Y = 0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
+A = 0
+B = 7
+assert(A < P)
+assert(B < P)
+assert((4 * A**3 + 27 * B**2) % P != 0)
 
 
 class Fp:
@@ -118,7 +123,7 @@ class Fp:
         self.x = x
 
     def __repr__(self):
-        return f'Fp(0x{self.x:032x})'
+        return f'Fp(0x{self.x:064x})'
 
     def __eq__(self, other):
         return self.x == other.x
@@ -132,25 +137,28 @@ class Fp:
     def __mul__(self, other):
         return Fp((self.x * other.x) % P)
 
+    def __div__(self, other):
+        return self * other ** -1
+
     def __pow__(self, other):
         return Fp(pow(self.x, other, P))
-
-    def __truediv__(self, other):
-        return self * other ** -1
 
     def __neg__(self):
         return Fp(P - self.x)
 
 
-class Fq:
+Fp.__truediv__ = Fp.__div__
+
+
+class Ec:
     def __init__(self, x, y):
         if x != Fp(0) and y != Fp(0):
-            assert(y ** 2 == x ** 3 + Fp(7))
+            assert(y ** 2 == x ** 3 + Fp(A) * x + Fp(B))
         self.x = x
         self.y = y
 
     def __repr__(self):
-        return f'Fq({self.x}, {self.y})'
+        return f'Ec({self.x}, {self.y})'
 
     def __eq__(self, other):
         return self.x == other.x and self.y == other.y
@@ -162,18 +170,15 @@ class Fq:
             return self
         if self.x == other.x and self.y == -other.y:
             return I
-        if self == other:
-            x1, y1, a = self.x, self.y, Fp(0)
-            s = (Fp(3) * x1 ** 2 + a) / (Fp(2) * y1)
-            x3 = s ** 2 - Fp(2) * x1
-            y3 = s * (x1 - x3) - y1
-            return Fq(x3, y3)
         x1, x2 = self.x, other.x
         y1, y2 = self.y, other.y
-        s = (y2 - y1) / (x2 - x1)
+        if self.y == other.y:
+            s = (x1 ** 2 * Fp(3) + Fp(A)) / (y1 * Fp(2))
+        else:
+            s = (y2 - y1) / (x2 - x1)
         x3 = s ** 2 - x1 - x2
         y3 = s * (x1 - x3) - y1
-        return Fq(x3, y3)
+        return Ec(x3, y3)
 
     def __mul__(self, other):
         result = I
@@ -187,13 +192,19 @@ class Fq:
         return result
 
 
-# Point at inifity
-I = Fq(Fp(0x0), Fp(0x0))
-G = Fq(Fp(G_X), Fp(G_Y))
+# Identity element
+I = Ec(Fp(0x0), Fp(0x0))
+# Generator point
+G = Ec(Fp(G_X), Fp(G_Y))
+assert(G * N == I)
+```
+
+```py
+import secp256k1
 
 prikey = 0x5f6717883bef25f45a129c11fcac1567d74bda5a9ad4cbffc8203c0da2a1473c
-assert(prikey < N)
-pubkey = G * prikey
+assert(prikey < secp256k1.N)
+pubkey = secp256k1.G * prikey
 assert(pubkey.x.x == 0xfb95541bf75e809625f860758a1bc38ac3c1cf120d899096194b94a5e700e891)
 assert(pubkey.y.x == 0xc7b6277d32c52266ab94af215556316e31a9acde79a8b39643c6887544fdf58c)
 ```
@@ -220,3 +231,4 @@ print(pubkey[32:64].hex())
 - [3] ANDREA CORBELLINI: Elliptic Curve Cryptography: a gentle introduction <https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/>
 - [4] onyb: Point Addition in Python <https://onyb.gitbook.io/secp256k1-python/point-addition-in-python>
 - [5] onyb: Scalar Multiplication in Python <https://onyb.gitbook.io/secp256k1-python/scalar-multiplication-in-python>
+- [6] Don Johnson, Alfred Menezes and Scott Vanstone, The Elliptic Curve Digital Signature Algorithm (ECDSA) <https://www.cs.miami.edu/home/burt/learning/Csc609.142/ecdsa-cert.pdf>
