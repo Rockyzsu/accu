@@ -115,6 +115,8 @@ nav:
         - JIT 编译器原理简述/原理简述: content/jit_tour/principle.md
         - JIT 编译器原理简述/实现 Brainfuck 解释器与 IR 优化: content/jit_tour/brainfuck_interpreter.md
         - JIT 编译器原理简述/实现 Brainfuck JIT 编译器: content/jit_tour/brainfuck_jit.md
+- Cryptography:
+        - Cryptography/椭圆曲线: content/cryptography/ecc.md
 - Python:
         - Python/f-strings: content/python/f_strings.md
         - Python/Windows 编程: content/python/windows.md

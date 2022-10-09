@@ -1,0 +1,222 @@
+# Cryptography/椭圆曲线
+
+椭圆曲线密码学(Elliptic Curve Cryptography, ECC) 是一种基于椭圆曲线数学的公开密钥加密算法. 针对密码学应用上的椭圆曲线通常是在有限域(不是实数域)平面上的曲线.
+
+> 有限域是包含有限个元素的域. 与其他域一样, 有限域是进行加减乘除运算都有定义并且满足特定规则的集合. 有限域最常见的例子是当 p 为素数时, 整数对 p 取模. 有限域的元素个数称为它的阶.
+
+椭圆曲线定义如下:
+
+```text
+y² = x³ + ax + b
+```
+
+描述一个特定的椭圆曲线需明确六个参数: T = (p, a, b, G, n, h). 对于 secp256k1 而言:
+
+```py
+# 有限域的素数 2**256 - 2**32 - 2**9 - 2**8 - 2**7 - 2**6 - 2**4 - 1
+p = 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f
+
+# 椭圆曲线方程参数, 即 y² = x³ + 7
+a = 0
+b = 7
+
+# 基点, secp256k1 上的每一个点都是比特币的一个公钥. 当用户希望使用其私钥生成公钥时,
+# 他们需要将其私钥乘以 Generator Point. 有限域上的每一个点都可以通过 G 生成.
+G = (0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,
+     0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8)
+
+# G 在有限域中规定的序号, 一个质数.
+# 比特币系统规定私钥的取值范围最大不能超过 n
+n = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
+
+# 余因数(cofactor), 控制选取点的密度
+h = 1
+```
+
+## The Standards for Efficient Cryptography(SEC)
+
+secp256k1 在 x 轴上是对称的, 对于每一个 x 的值, y 都有两个可选值. 由于 secp256k1 的性质, 其中一个 y 值是奇数, 另一个 y 值是偶数. 因此在存储和表示比特币公钥时, 既可以使用完整坐标也可以只使用 x 坐标加 y 的奇偶标志. 非压缩格式 SEC 以 0x04 开头, 后跟 x 和 y 的值; 压缩格式 SEC 以 0x02(偶) 或 0x03(奇) 开头, 后仅跟 x. 以下是两种 Generator Point 表示方法.
+
+```py
+0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
+
+0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+```
+
+非压缩格式占用 65 个 Byte, 压缩格式占用 33 个字节.
+
+## 椭圆曲线上的数学运算
+
+**实数域**
+
+![img](/img/cryptography/ecc/ecclines.png)
+
+- Point at infinity: 无穷远点与任意点 P 相加都等于点 P.
+- Point negation: 具有相同 x 坐标的另一个点, 有 `P + (-P) = 0`. 对于椭圆曲线上的点 `(x, y)`, 可以写为 `-(x, y)` 或 `(x, -y)`.
+- Point addition: P + Q 等于经过 P 与 Q 的直线与椭圆曲线相交的第三点的相反数.
+- Point doubling: 等于 P + P.
+- Point multiplication: 等价于重复进行 N 次 point addition. 但在实践上通常使用 Double and add 算法加速计算.
+
+**有限域**
+
+`A + B = C`
+
+![img](/img/cryptography/ecc/point_add.png)
+
+## Double and add
+
+任意乘法可以分解为一系列的 double 和 add 操作. 例如, 我们要运算 `151 * P`, 直观上我们会认为要进行 150 次点相加运算, 但可以进行优化. 151 可以表示为二进制格式 10010111:
+
+```text
+151 = 1 * 2^7 + 0 * 2^6 + 0 * 2^5 + 1 * 2^4 + 0 * 2^3 + 1 * 2^2 + 1 * 2^1 + 1 * 2^0
+```
+
+我们从 10010111 的最低比特位开始, 如果为 1, 则结果加 P; 如果为 0, 令 P = 2P. 相关 Python 代码如下所示:
+
+```py
+def bits(n):
+    """
+    Generates the binary digits of n, starting
+    from the least significant bit.
+
+    bits(151) -> 1, 1, 1, 0, 1, 0, 0, 1
+    """
+    while n:
+        yield n & 1
+        n >>= 1
+
+def double_and_add(n, x):
+    """
+    Returns the result of n * x, computed using
+    the double and add algorithm.
+    """
+    result = 0
+    addend = x
+
+    for bit in bits(n):
+        if bit == 1:
+            result += addend
+        addend *= 2
+
+    return result
+```
+
+## 代码实现
+
+例题: 已知比特币私钥为 `0x5f6717883bef25f45a129c11fcac1567d74bda5a9ad4cbffc8203c0da2a1473c`, 求公钥.
+
+```py
+P = 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f
+N = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
+G_X = 0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+G_Y = 0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
+
+
+class Fp:
+    def __init__(self, x):
+        assert(0 <= x < P)
+        self.x = x
+
+    def __repr__(self):
+        return f'Fp(0x{self.x:032x})'
+
+    def __eq__(self, other):
+        return self.x == other.x
+
+    def __add__(self, other):
+        return Fp((self.x + other.x) % P)
+
+    def __sub__(self, other):
+        return Fp((self.x - other.x) % P)
+
+    def __mul__(self, other):
+        return Fp((self.x * other.x) % P)
+
+    def __pow__(self, other):
+        return Fp(pow(self.x, other, P))
+
+    def __truediv__(self, other):
+        return self * other ** -1
+
+    def __neg__(self):
+        return Fp(P - self.x)
+
+
+class Fq:
+    def __init__(self, x, y):
+        if x != Fp(0) and y != Fp(0):
+            assert(y ** 2 == x ** 3 + Fp(7))
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f'Fq({self.x}, {self.y})'
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+    def __add__(self, other):
+        if self == I:
+            return other
+        if other == I:
+            return self
+        if self.x == other.x and self.y == -other.y:
+            return I
+        if self == other:
+            x1, y1, a = self.x, self.y, Fp(0)
+            s = (Fp(3) * x1 ** 2 + a) / (Fp(2) * y1)
+            x3 = s ** 2 - Fp(2) * x1
+            y3 = s * (x1 - x3) - y1
+            return Fq(x3, y3)
+        x1, x2 = self.x, other.x
+        y1, y2 = self.y, other.y
+        s = (y2 - y1) / (x2 - x1)
+        x3 = s ** 2 - x1 - x2
+        y3 = s * (x1 - x3) - y1
+        return Fq(x3, y3)
+
+    def __mul__(self, other):
+        result = I
+        addend = self
+        while other:
+            b = other & 1
+            if b == 1:
+                result += addend
+            addend = addend + addend
+            other = other >> 1
+        return result
+
+
+# Point at inifity
+I = Fq(Fp(0x0), Fp(0x0))
+G = Fq(Fp(G_X), Fp(G_Y))
+
+prikey = 0x5f6717883bef25f45a129c11fcac1567d74bda5a9ad4cbffc8203c0da2a1473c
+assert(prikey < N)
+pubkey = G * prikey
+assert(pubkey.x.x == 0xfb95541bf75e809625f860758a1bc38ac3c1cf120d899096194b94a5e700e891)
+assert(pubkey.y.x == 0xc7b6277d32c52266ab94af215556316e31a9acde79a8b39643c6887544fdf58c)
+```
+
+使用第三方库验证以上计算过程是否正确, 验证代码如下:
+
+```py
+import base58
+import ecdsa
+
+prikey = ecdsa.SigningKey.from_secret_exponent(
+    0x5f6717883bef25f45a129c11fcac1567d74bda5a9ad4cbffc8203c0da2a1473c,
+    curve=ecdsa.SECP256k1)
+pubkey = prikey.get_verifying_key()
+pubkey = pubkey.to_string(encoding='raw')
+print(pubkey[0:32].hex())
+print(pubkey[32:64].hex())
+```
+
+## 参考
+
+- [1] Wiki: Elliptic curve point multiplication <https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication>
+- [2] river: SEC Format <https://river.com/learn/terms/s/sec-format/>
+- [3] ANDREA CORBELLINI: Elliptic Curve Cryptography: a gentle introduction <https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/>
+- [4] onyb: Point Addition in Python <https://onyb.gitbook.io/secp256k1-python/point-addition-in-python>
+- [5] onyb: Scalar Multiplication in Python <https://onyb.gitbook.io/secp256k1-python/scalar-multiplication-in-python>
