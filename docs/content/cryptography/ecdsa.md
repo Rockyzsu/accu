@@ -9,7 +9,7 @@
 0. Compute r = x1 mod n. If r = 0 then go to step 1.
 0. Compute k<sup>-1</sup> mod n.
 0. Compute SHA-1(m) and convert this bit string to an integer e.
-0. Compute s = k<sup>-1</sup>(e + dr) mod n. If s = 0 then go to step 1.
+0. Compute s = k<sup>-1</sup>(e + d \* r) mod n. If s = 0 then go to step 1.
 0. Signature for the message m is (r, s).
 
 > ECDSA 十分依赖 k 的随机性. 绝对不能在不同的签名中使用相同的 k. 在两个签名中使用相同的 k, 可以逆推出私钥.
@@ -19,8 +19,8 @@
 0. Verify that r and s are integers in the interval [1, n - 1].
 0. Compute SHA-1(m) and convert this bit string to an integer e.
 0. Compute w = s<sup>-1</sup> mod n.
-0. Compute u1 = ew mod n and u2 = rw mod n.
-0. Compute X = u1G + u2Q.
+0. Compute u1 = e \* w mod n and u2 = r \* w mod n.
+0. Compute X = u1 \* G + u2 \* Q.
 0. If X = 0, then reject the signature. Otherwise, convert the x-coordinate x1 of X to an integer x1, and compute v = x1 mod n.
 0. Accept the signature if and only if v = r.
 
