@@ -118,6 +118,7 @@ nav:
 - Cryptography:
         - Cryptography/椭圆曲线: content/cryptography/ecc.md
         - Cryptography/椭圆曲线签名与验签: content/cryptography/ecdsa.md
+        - Cryptography/蒙哥马利约分算法: content/cryptography/montgomery.md
         - Cryptography/默克尔树: content/cryptography/merkle_tree.md
         - Cryptography/RC4: content/cryptography/rc4.md
 - Python:
@@ -162,7 +163,6 @@ nav:
         - 杂项/CKB-VM 的 ASM 执行模式简介: content/misc/ckb_vm_asm.md
         - 杂项/CKB-VM 代码结构介绍: content/misc/ckb_vm_machine.md
         - 杂项/我们如何通过手工汇编代码击败 Rust 的零成本抽象: content/misc/zero_cost_abstractions.md
-        - 杂项/蒙哥马利约分算法: content/misc/montgomery.md
         - 杂项/Dlib 人脸识别: content/misc/dlib.md
         - 杂项/谷歌两步验证算法实现: content/misc/2fa.md
         - 杂项/生命游戏: content/misc/game_of_life/overview.md
