@@ -41,8 +41,8 @@ b = 7
 G = (0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,
      0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8)
 
-# 椭圆曲线的阶(order), 等价于该椭圆曲线上的点的个数. 椭圆曲线上的任意点 P 与 n 的乘积都是无穷远点. 这是因为有限域椭圆曲
-# 线是一个循环群, (n - 1) * P = -P, 因此 n * P = -P + P = 0.
+# 椭圆曲线的阶(order), 等价于该椭圆曲线上的点的个数. 椭圆曲线上的任意点 P 与 n 的乘积都是无穷远点.
+# 这是因为有限域椭圆曲线是一个循环群, (n - 1) * P = -P, 因此 n * P = -P + P = 0.
 # 私钥的取值范围小于 n.
 n = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
 
