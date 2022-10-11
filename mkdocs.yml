@@ -126,6 +126,7 @@ nav:
         - Python/f-strings: content/python/f_strings.md
         - Python/Windows 编程: content/python/windows.md
         - Python/Pypi: content/python/pypi.md
+        - Python/Matplotlib: content/python/matplotlib.md
 - Go:
         - Go/按行读取文件: content/go/read_line.md
         - Go/Socket 编程: content/go/socket.md
@@ -172,7 +173,6 @@ nav:
         - 杂项/EVM: content/misc/evm.md
         - 杂项/图像风格转移: content/misc/neural_style_transfer.md
         - 杂项/霍夫曼编码: content/misc/huffman.md
-        - 杂项/Matplotlib: content/misc/matplotlib.md
         - 杂项/时间的终结: content/misc/end_of_time.md
         - 杂项/RISC-V 工具链: content/misc/riscv_toolchains.md
 - 竹书纪年:

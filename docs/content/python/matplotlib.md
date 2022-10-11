@@ -1,4 +1,4 @@
-# 杂项/Matplotlib
+# Python/Matplotlib
 
 ## 从美国 GDP 数据开始
 
@@ -10,7 +10,7 @@
 
 上面这句话似乎给了很多信息, 1.4%, 1.1%, 6.9% ... 但又似乎什么都没说, 你几乎无法从中得出有意义的信息. 直到有位答主贴了一张图:
 
-![img](/img/misc/matplotlib/us_gdp_2022.jpg)
+![img](/img/python/matplotlib/us_gdp_2022.jpg)
 
 通过这张图, 读者几乎可以在一秒之内就了解近三年美国的 GDP 变化.
 
@@ -20,7 +20,7 @@
 
 许多重要人物都发表过类似的观点, 例如拿破仑曾经说过, "A good sketch is better than a long speech". 同时 1913 年在俄亥俄州 Piqua 的 Piqua Auto Supply House 的一份报纸广告中, 出现了类似理念:
 
-![img](/img/misc/matplotlib/piqua.png)
+![img](/img/python/matplotlib/piqua.png)
 
 - 我们在视觉上学习和记忆.
 - 视觉智商的增长速度快于其他形式的智商.
@@ -53,7 +53,7 @@ plt.plot(x, np.sin(x))
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/line_1.png)
+![img](/img/python/matplotlib/line_1.png)
 
 **样式**
 
@@ -118,7 +118,7 @@ plt.plot(x, np.sin(x), color='pink', linewidth=2, linestyle='--')
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/line_2.png)
+![img](/img/python/matplotlib/line_2.png)
 
 **坐标范围**
 
@@ -137,7 +137,7 @@ p.set_xlim(x.min(), x.max())
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/line_3.png)
+![img](/img/python/matplotlib/line_3.png)
 
 **填充**
 
@@ -156,7 +156,7 @@ plt.fill_between(x, 0, np.sin(x - np.pi / 4), alpha=0.5)
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/line_4.png)
+![img](/img/python/matplotlib/line_4.png)
 
 **坐标位置与坐标样式**
 
@@ -180,7 +180,7 @@ p.spines['left'].set_position(('data', 0))
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/line_5.png)
+![img](/img/python/matplotlib/line_5.png)
 
 **坐标刻度**
 
@@ -201,7 +201,7 @@ p.set_yticks([])
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/line_6.png)
+![img](/img/python/matplotlib/line_6.png)
 
 **函数名称**
 
@@ -219,7 +219,7 @@ plt.legend(loc='lower right')
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/line_7.png)
+![img](/img/python/matplotlib/line_7.png)
 
 ## 散点图
 
@@ -238,7 +238,7 @@ plt.scatter(x, y, s=50, c='#FF0000', alpha=0.5)
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/scatter_sample.png)
+![img](/img/python/matplotlib/scatter_sample.png)
 
 **样式**
 
@@ -254,7 +254,7 @@ plt.scatter(x, y, s=50, c='#FF0000', marker='+', alpha=0.5)
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/scatter_sample_mark.png)
+![img](/img/python/matplotlib/scatter_sample_mark.png)
 
 **三维坐标**
 
@@ -277,7 +277,7 @@ p.set_xlabel('X')
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/scatter_3d.png)
+![img](/img/python/matplotlib/scatter_3d.png)
 
 ## 柱状图
 
@@ -298,7 +298,7 @@ for x, y in zip(X, Y):
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/bar_1.png)
+![img](/img/python/matplotlib/bar_1.png)
 
 **柱状图柱子的颜色**
 
@@ -308,7 +308,7 @@ plt.bar 函数的 color 参数可以设置颜色; color 可以接受一个颜色
 plt.bar(X, Y, tick_label=['I', 'II', 'III', 'IV', 'V'], color=['pink', 'purple'])
 ```
 
-![img](/img/misc/matplotlib/bar_2.png)
+![img](/img/python/matplotlib/bar_2.png)
 
 **填充**
 
@@ -318,7 +318,7 @@ plt.bar 函数的 hatch 参数可以填充样式, 可取值为: `/`, `\`, `|`, `
 plt.bar(X, Y, tick_label=['I', 'II', 'III', 'IV', 'V'], hatch='/')
 ```
 
-![img](/img/misc/matplotlib/bar_3.png)
+![img](/img/python/matplotlib/bar_3.png)
 
 **柱状图堆叠**
 
@@ -340,7 +340,7 @@ plt.legend()
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/bar_4.png)
+![img](/img/python/matplotlib/bar_4.png)
 
 **柱状图并列**
 
@@ -364,7 +364,7 @@ plt.xticks(X1+bar_width / 2, ['I', 'II', 'III', 'IV', 'V'])
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/bar_5.png)
+![img](/img/python/matplotlib/bar_5.png)
 
 **条状图**
 
@@ -386,7 +386,7 @@ p.set_yticklabels(['I', 'II', 'III', 'IV', 'V'])
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/bar_6.png)
+![img](/img/python/matplotlib/bar_6.png)
 
 ## 饼图
 
@@ -403,7 +403,7 @@ plt.pie(X, labels=labels, autopct='%1.1f%%', startangle=90)
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/pie_1.png)
+![img](/img/python/matplotlib/pie_1.png)
 
 **饼图实现为正圆**
 
@@ -420,7 +420,7 @@ plt.axis('equal')
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/pie_2.png)
+![img](/img/python/matplotlib/pie_2.png)
 
 **饼图部分强调**
 
@@ -438,7 +438,7 @@ plt.axis('equal')
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/pie_3.png)
+![img](/img/python/matplotlib/pie_3.png)
 
 ## 涂鸦
 
@@ -467,4 +467,4 @@ fig.spines['left'].set_position(('data', 0))
 plt.show()
 ```
 
-![img](/img/misc/matplotlib/secp256k1.jpg)
+![img](/img/python/matplotlib/secp256k1.jpg)
