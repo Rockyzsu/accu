@@ -133,6 +133,7 @@ nav:
         - Go/TLS: content/go/tls.md
         - Go/目录监听: content/go/fswatch.md
         - Go/Cgo: content/go/cgo.md
+        - Go/令牌桶算法限流: content/go/token_bucket.md
 - Rust 速成课:
         - Rust 速成课/概览: content/rust_crash/overview.md
         - Rust 速成课/开发环境搭建: content/rust_crash/env.md
@@ -173,7 +174,6 @@ nav:
         - 杂项/霍夫曼编码: content/misc/huffman.md
         - 杂项/Matplotlib: content/misc/matplotlib.md
         - 杂项/时间的终结: content/misc/end_of_time.md
-        - 杂项/令牌桶算法限流: content/misc/token_bucket.md
         - 杂项/RISC-V 工具链: content/misc/riscv_toolchains.md
 - 竹书纪年:
         - Y2019: content/diary/2019.md
