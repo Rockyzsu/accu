@@ -67,7 +67,7 @@ assert v == r
 print('pass')
 ```
 
-完整的手写代码可参考 <https://github.com/mohanson/secp256k1-python>, 用于理解 secp256k1 原理来讲非常清晰了.
+完整代码: <https://github.com/mohanson/secp256k1-python>
 
 ## 参考
 

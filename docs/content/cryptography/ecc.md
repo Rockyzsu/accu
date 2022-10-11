@@ -263,6 +263,8 @@ print(pubkey[0:32].hex())
 print(pubkey[32:64].hex())
 ```
 
+完整代码: <https://github.com/mohanson/secp256k1-python>
+
 ## 参考
 
 - [1] Wiki: Elliptic curve point multiplication <https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication>

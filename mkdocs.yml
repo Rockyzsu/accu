@@ -118,6 +118,7 @@ nav:
 - Cryptography:
         - Cryptography/椭圆曲线: content/cryptography/ecc.md
         - Cryptography/椭圆曲线签名与验签: content/cryptography/ecdsa.md
+        - Cryptography/椭圆曲线签名的错误用法: content/cryptography/ecdsa_ps3_hack.md
         - Cryptography/蒙哥马利约分算法: content/cryptography/montgomery.md
         - Cryptography/默克尔树: content/cryptography/merkle_tree.md
         - Cryptography/RC4: content/cryptography/rc4.md
