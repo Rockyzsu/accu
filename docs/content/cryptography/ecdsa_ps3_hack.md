@@ -9,8 +9,8 @@
 有:
 
 - 公钥 pubkey
-- 信息 m_1, 及其签名 (r_1, s_1)
-- 信息 m_2, 及其签名 (r_2, s_2)
+- 信息 m1, 及其签名 (r1, s1)
+- 信息 m2, 及其签名 (r2, s2)
 
 求:
 
@@ -18,10 +18,10 @@
 
 ## 数学推导
 
-0. `s_1 = (m_1 + prikey * r_1) / k`
-0. `s_2 = (m_2 + prikey * r_2) / k = (m_2 + prikey * r_1) / k`
-0. `s_1 / s_2 = (m_1 + prikey * r_1) / (m_2 + prikey * r_1)`
-0. `prikey = (s_1 * m_2 - s_2 * m_1) / (s_2 - s_1) / r_1`
+0. `s1 = (m1 + prikey * r1) / k`
+0. `s2 = (m2 + prikey * r2) / k = (m2 + prikey * r1) / k`
+0. `s1 / s2 = (m1 + prikey * r1) / (m2 + prikey * r1)`
+0. `prikey = (s1 * m2 - s2 * m1) / (s2 - s1) / r1`
 
 ## 代码实现
 
@@ -33,13 +33,13 @@ pubkey = secp256k1.Ec(
     secp256k1.Fp(0xc7b6277d32c52266ab94af215556316e31a9acde79a8b39643c6887544fdf58c)
 )
 
-m_1 = 0x72a963cdfb01bc37cd283106875ff1f07f02bc9ad6121b75c3d17629df128d4e
-r_1 = 0x741a1cc1db8aa02cff2e695905ed866e4e1f1e19b10e2b448bf01d4ef3cbd8ed
-s_1 = 0x2222017d7d4b9886a19fe8da9234032e5e8dc5b5b1f27517b03ac8e1dd573c78
+m1 = 0x72a963cdfb01bc37cd283106875ff1f07f02bc9ad6121b75c3d17629df128d4e
+r1 = 0x741a1cc1db8aa02cff2e695905ed866e4e1f1e19b10e2b448bf01d4ef3cbd8ed
+s1 = 0x2222017d7d4b9886a19fe8da9234032e5e8dc5b5b1f27517b03ac8e1dd573c78
 
-m_2 = 0x059aa1e67abe518ea1e09587f828264119e3cdae0b8fcaedb542d8c287c3d420
-r_2 = 0x741a1cc1db8aa02cff2e695905ed866e4e1f1e19b10e2b448bf01d4ef3cbd8ed
-s_2 = 0x5c907cdd9ac36fdaf4af60e2ccfb1469c7281c30eb219eca3eddf1f0ad804655
+m2 = 0x059aa1e67abe518ea1e09587f828264119e3cdae0b8fcaedb542d8c287c3d420
+r2 = 0x741a1cc1db8aa02cff2e695905ed866e4e1f1e19b10e2b448bf01d4ef3cbd8ed
+s2 = 0x5c907cdd9ac36fdaf4af60e2ccfb1469c7281c30eb219eca3eddf1f0ad804655
 
 
 class Fr:
@@ -74,7 +74,7 @@ class Fr:
 
 Fr.__truediv__ = Fr.__div__
 
-prikey = (Fr(s_1) * Fr(m_2) - Fr(s_2) * Fr(m_1)) / (Fr(s_2) - Fr(s_1)) / Fr(r_1)
+prikey = (Fr(s1) * Fr(m2) - Fr(s2) * Fr(m1)) / (Fr(s2) - Fr(s1)) / Fr(r1)
 assert prikey.x == 0x5f6717883bef25f45a129c11fcac1567d74bda5a9ad4cbffc8203c0da2a1473c
 ```
 
