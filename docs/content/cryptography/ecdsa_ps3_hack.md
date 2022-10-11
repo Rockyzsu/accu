@@ -8,7 +8,6 @@
 
 有:
 
-- 公钥 pubkey
 - 信息 m1, 及其签名 (r1, s1)
 - 信息 m2, 及其签名 (r2, s2)
 
@@ -27,11 +26,6 @@
 
 ```py
 import secp256k1
-
-pubkey = secp256k1.Ec(
-    secp256k1.Fp(0xfb95541bf75e809625f860758a1bc38ac3c1cf120d899096194b94a5e700e891),
-    secp256k1.Fp(0xc7b6277d32c52266ab94af215556316e31a9acde79a8b39643c6887544fdf58c)
-)
 
 m1 = 0x72a963cdfb01bc37cd283106875ff1f07f02bc9ad6121b75c3d17629df128d4e
 r1 = 0x741a1cc1db8aa02cff2e695905ed866e4e1f1e19b10e2b448bf01d4ef3cbd8ed
