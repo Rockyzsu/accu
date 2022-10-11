@@ -6,17 +6,26 @@
 
 有限域(Finite field)是包含有限个元素的域. 与其他域一样, 有限域是进行加减乘除运算都有定义并且满足特定规则的集合. 有限域最常见的例子是当 p 为素数时, 整数对 p 取模. 有限域的元素个数称为它的阶. 这种类型的有限域使用 Fp 表示. 有限域种包含三种计算, 分别是 addition, multiplication 和 inversion.
 
-例题: 有有限域 F<sub>23</sub>, 求:
+一个有限域由数字 0, 1, 2 ... P - 1 组成, 其中 P 为 Prime, 各种操作定义如下:
+
+```text
+a + b:  (a + b) % p
+a * b:  (a * b) % p
+a - b:  (a - b) % p
+a / b:  (a * b^(p-2)) % p
+```
+
+例: 有有限域 F<sub>23</sub>, 求:
 
 0. 12 + 20
 0. 8 * 9
 0. 8<sup>-1</sup>
 
-解答:
+答:
 
 0. 12 + 20 = (12 + 20) % 23 = 9
 0. 8 * 9 = (8 * 9) % 23 = 3
-0. 由于 8 * 3 % 23 = 1, 因此 8<sup>-1</sup> = 3
+0. 8<sup>-1</sup> = 8 ^ (23 - 2) % 23 = 3
 
 ## 椭圆曲线
 
@@ -85,9 +94,9 @@ secp256k1 在 x 轴上是对称的, 对于每一个 x 的值, y 都有两个可�
 - Point doubling: 详见论文 4.1 章节.
 - Point multiplication: 等价于重复进行 N 次 point addition, 此处 N 为整数而非有限域元素.
 
-例题: 有有限域 F<sub>23</sub> 和椭圆曲线 y² = x³ + x + 4, P = (4, 7), Q = (13, 11), 求 P + Q
+例: 有有限域 F<sub>23</sub> 和椭圆曲线 y² = x³ + x + 4, P = (4, 7), Q = (13, 11), 求 P + Q
 
-解答: P + Q = (15, 16)
+答: P + Q = (15, 16)
 
 ## Double and add
 
@@ -129,7 +138,9 @@ def double_and_add(n, x):
 
 ## 代码实现
 
-例题: 已知比特币私钥为 `0x5f6717883bef25f45a129c11fcac1567d74bda5a9ad4cbffc8203c0da2a1473c`, 求公钥.
+例: 已知比特币私钥为 `0x5f6717883bef25f45a129c11fcac1567d74bda5a9ad4cbffc8203c0da2a1473c`, 求公钥.
+
+答:
 
 ```py
 P = 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f
