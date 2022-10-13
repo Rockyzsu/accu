@@ -31,7 +31,7 @@ y3 = u * (v * v * x1 * z2 - w) - v * v * v * y1 * z2
 z3 = v * v * v * z1 * z2
 ```
 
-- 如果 P != +Q
+- 如果 P == +Q
 
 ```text
 t = a * z1 * z1 + 3 * x1 * x1
@@ -43,7 +43,7 @@ y3 = t * (4 * v - w) - 8 * y1 * y1 * u * u
 z3 = 8 * u * u * u
 ```
 
-- 如果 P != -Q
+- 如果 P == -Q
 
 ```text
 x3 = 0
@@ -78,15 +78,15 @@ class EcJacobian:
 
     def double(self):
         x, y, z = self.x, self.y, self.z
-        w = secp256k1.Fp(3) * x * x
-        s = y * z
-        b = x * y * s
-        h = w * w - secp256k1.Fp(8) * b
-        s_squared = s * s
-        newx = secp256k1.Fp(2) * h * s
-        newy = w * (secp256k1.Fp(4) * b - h) - secp256k1.Fp(8) * y * y * s_squared
-        newz = secp256k1.Fp(8) * s * s_squared
-        return EcJacobian(newx, newy, newz)
+        a = secp256k1.Fp(3) * x * x
+        b = y * z
+        c = x * y * b
+        d = a * a - secp256k1.Fp(8) * c
+        e = b * b
+        f = secp256k1.Fp(2) * d * b
+        g = a * (secp256k1.Fp(4) * c - d) - secp256k1.Fp(8) * y * y * e
+        h = secp256k1.Fp(8) * b * e
+        return EcJacobian(f, g, h)
 
     def __add__(self, other):
         x1, y1, z1 = self.x, self.y, self.z
@@ -106,14 +106,14 @@ class EcJacobian:
                 return self.double()
         u = u1 - u2
         v = v1 - v2
-        v_squared = v * v
-        v_squared_x_v2 = v_squared * v2
-        v_cubed = v * v_squared
         w = z1 * z2
-        a = u * u * w - v_cubed - v_squared_x_v2 * secp256k1.Fp(2)
-        x3 = v * a
-        y3 = u * (v_squared_x_v2 - a) - v_cubed * u2
-        z3 = v_cubed * w
+        a = v * v
+        b = a * v2
+        c = v * a
+        d = u * u * w - c - b * secp256k1.Fp(2)
+        x3 = v * d
+        y3 = u * (b - d) - c * u2
+        z3 = c * w
         return EcJacobian(x3, y3, z3)
 
 
