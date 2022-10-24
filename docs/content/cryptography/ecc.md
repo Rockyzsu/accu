@@ -212,22 +212,22 @@ class Ec:
         x1, x2 = self.x, other.x
         y1, y2 = self.y, other.y
         if self.y == other.y:
-            s = (x1 ** 2 * Fp(3) + Fp(A)) / (y1 * Fp(2))
+            s = (Fp(3) * x1 * x1 + Fp(A)) / (Fp(2) * y1)
         else:
             s = (y2 - y1) / (x2 - x1)
         x3 = s ** 2 - x1 - x2
         y3 = s * (x1 - x3) - y1
         return Ec(x3, y3)
 
-    def __mul__(self, other):
+    def __mul__(self, n):
         result = I
         addend = self
-        while other:
-            b = other & 1
+        while n:
+            b = n & 1
             if b == 1:
                 result += addend
             addend = addend + addend
-            other = other >> 1
+            n = n >> 1
         return result
 
 
