@@ -1,4 +1,4 @@
-# CKB-VM: B 扩展指令集与宏指令融合技术
+# 演讲/CKB-VM B 扩展指令集与宏指令融合技术
 
 在我们写代码的时候总是会希望代码执行的越快越好, 对于区块链上的智能合约也是.
 
@@ -69,7 +69,7 @@ static inline int64_t _rv64_clz(int64_t rs1) {
 
 完整的 B 扩展指令集提供了 100 多条新的指令, 下面是描述指令集文档的一部分:
 
-![img](/img/misc/ckb_vm_b_extension_and_mop/b_isa.png)
+![img](/img/speech/ckb_vm_b_extension_and_mop/b_isa.png)
 
 总的来说, 如果你有位操作的需求的话, 那么使用 B 扩展指令集能带来一个数量级以上的提升.
 
@@ -99,7 +99,7 @@ CKB-VM 会分别执行 div 和 rem 两个指令.
 
 注意到由于我们的 CKB-VM 运行在 x86-64 的机器上, x86-64 在计算除法的时候, 商和余数是一起被计算的.
 
-![img](/img/misc/ckb_vm_b_extension_and_mop/x86_div.png)
+![img](/img/speech/ckb_vm_b_extension_and_mop/x86_div.png)
 
 因此, 这里有一个改进空间, 就是当 div 与 rem 指令相邻出现并且它们的两个操作数都相同的时候, 可以使用一条 x86-64 指令替代.
 

@@ -157,21 +157,22 @@ nav:
 - AHK:
         - AHK/安装和使用: content/ahk/overview.md
         - AHK/在一个热键上开启或关闭: content/ahk/toggle.md
+- 演讲:
+        - 演讲/minits 以 LLVM 为后端的 TypeScript 静态编译器: content/speech/minits.md
+        - 演讲/WASC WebAssembly 到 RISC-V 的 AOT 编译器(中文): content/speech/wasc_cn.md
+        - 演讲/WASC WebAssembly 到 RISC-V 的 AOT 编译器(英文): content/speech/wasc_en.md
+        - 演讲/CKB VM B 扩展指令集与宏指令融合: content/speech/ckb_vm_b_extension_and_mop.md
+        - 演讲/RISC-V 在区块链智能及云原生中的应用, 机遇与挑战: content/speech/riscv_in_blockchain.md
+        - 演讲/我们如何通过模糊测试保证 CKB VM 的正确性(中文): content/speech/ckb_vm_fuzzing_cn.md
+        - 演讲/我们如何通过模糊测试保证 CKB VM 的正确性(英文): content/speech/ckb_vm_fuzzing_en.md
+        - 演讲/我们如何通过手工汇编代码击败 Rust 的零成本抽象: content/speech/zero_cost_abstractions.md
+        - 演讲/EVM 简介: content/speech/evm.md
 - 杂项:
-        - 杂项/minits, 以 LLVM 为后端的 TypeScript 静态编译器: content/misc/minits.md
-        - 杂项/WASC, WebAssembly 到 RISC-V 的 AOT 编译器(中文): content/misc/wasc_cn.md
-        - 杂项/WASC, WebAssembly 到 RISC-V 的 AOT 编译器(英文): content/misc/wasc_en.md
-        - 杂项/CKB VM B 扩展指令集与宏指令融合: content/misc/ckb_vm_b_extension_and_mop.md
-        - 杂项/RISC-V 在区块链智能及云原生中的应用, 机遇与挑战: content/misc/riscv_and_ckb_vm.md
-        - 杂项/我们如何通过模糊测试保证 CKB VM 的正确性(中文): content/misc/fuzzing_ckb_vm_cn.md
-        - 杂项/我们如何通过模糊测试保证 CKB VM 的正确性(英文): content/misc/fuzzing_ckb_vm_en.md
         - 杂项/CKB-VM 的 ASM 执行模式简介: content/misc/ckb_vm_asm.md
         - 杂项/CKB-VM 代码结构介绍: content/misc/ckb_vm_machine.md
-        - 杂项/我们如何通过手工汇编代码击败 Rust 的零成本抽象: content/misc/zero_cost_abstractions.md
         - 杂项/Dlib 人脸识别: content/misc/dlib.md
         - 杂项/生命游戏: content/misc/game_of_life/overview.md
         - 杂项/算法心得笔记: content/misc/hackers_delight.md
-        - 杂项/EVM: content/misc/evm.md
         - 杂项/图像风格转移: content/misc/neural_style_transfer.md
         - 杂项/霍夫曼编码: content/misc/huffman.md
         - 杂项/时间的终结: content/misc/end_of_time.md

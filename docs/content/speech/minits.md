@@ -1,4 +1,4 @@
-# 杂项/演讲 minits: 以 LLVM 为后端的 TypeScript 静态编译器
+# 演讲/minits: 以 LLVM 为后端的 TypeScript 静态编译器
 
 - 时间: 2019-11-03
 - 地点: 2019 中国开源年会(COSCon'19), 华东师范大学
@@ -411,9 +411,3 @@ $ ./brainfuck ">++++[<++++++++>-]>++++++++[>++++<-]>>++>>>+>>>+<<<<<<<<<<[-[->+<
 - 已实现大部分 TypeScript 过程式编程语法
 - 系统调用 syscall 初步完成
 - 图灵完备
-
-## Fin
-
-Thanks for you listening and sleeping!
-
-敬具.

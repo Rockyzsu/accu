@@ -1,4 +1,4 @@
-# 杂项/演讲 WASC, WebAssembly 到 RISC-V 的 AOT 编译器(中文)
+# 演讲/WASC: WebAssembly 到 RISC-V 的 AOT 编译器(中文)
 
 项目地址: [https://github.com/mohanson/wasc](https://github.com/mohanson/wasc).
 
@@ -32,7 +32,7 @@ OSDT 的各位周末快乐, 我是 mohanson, 目前在 nervos 做虚拟机和编
 
 ## 原理
 
-![img](/img/misc/wasc_cn/wasc.png)
+![img](/img/speech/wasc_cn/wasc.png)
 
 WASC 这个项目的名字来自 WebAssembly 和 RISC-V 的组合. 它可以将 WebAssembly 规范的 WebAssembly 字节码(.wasm)或 S 表达式(.wat)文件编译为 ELF 格式的可执行文件, 目前经过测试的有两个平台, x86 和 RISC-V.
 

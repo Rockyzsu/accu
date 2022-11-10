@@ -1,4 +1,4 @@
-# 我们如何通过模糊测试保证 CKB-VM 的正确性(一)
+# 演讲/我们如何通过模糊测试保证 CKB-VM 的正确性(一)
 
 ## 引言
 
@@ -41,7 +41,7 @@ static inline uint64_t clz(uint64_t n) {
 
 B 扩展指令集总共新增了 43 个指令, 按照作用可以细分为 4 个子类: 地址生成指令(Address generation instructions), 基础位操作指令(Basic bit-manipulation), 无进位乘法(Carry-less multiplication)和单位操作(Single-bit instructions)指令. 本文略过细节不讲, 详细的内容可以下载官方 PDF [https://github.com/riscv/riscv-bitmanip/releases](https://github.com/riscv/riscv-bitmanip/releases) 进行查看. 如此数量庞大的指令带给我们一个难题: 如何保证这 43 个指令的实现的正确性? 我们首先想到的是使用官方测试用例, 但非常的不幸, 由于 CKB-VM 与 RISC-V B 扩展指令集规范是同步推进的--我们几乎在官方发布 1.0 版本规范的同时就准备好了代码, 它导致的结果是官方在那时并未来得及准备测试用例, 因此我们面临没有测试用例可用的窘境. 另一个更加严峻的问题是, 我们那时候连可以使用的汇编器(Assembler, 将汇编代码编译为机器码的工具)都没有: 如果我们准备自己编写测试用例, 不能使用 C 语言, 甚至连汇编语言都无法使用.
 
-为了解决这两个问题, 我们做了以下两部分工作. 我们首先自己实现了一个汇编器 [riscv-naive-assembler](https://github.com/XuJiandong/riscv-naive-assembler), 其次我们编写了一个随机 RISC-V 指令流生成程序. 
+为了解决这两个问题, 我们做了以下两部分工作. 我们首先自己实现了一个汇编器 [riscv-naive-assembler](https://github.com/XuJiandong/riscv-naive-assembler), 其次我们编写了一个随机 RISC-V 指令流生成程序.
 
 汇编器是测试的第一步, 它的必要性有两点: 1) 我们可以使用汇编代码编写测试代码, 而不是机器码. 2) 因为 CKB-VM 在指令的执行前会做译码工作, 因此汇编器可以同 CKB-VM 内的译码器做交叉验证, 确保一条指令经过编码和译码后解析出来的仍然是同一条指令. 我们安排了两个开发者做这件工作, A 开发者编写一个独立于 CKB-VM 存在的汇编器, B 开发者在 CKB-VM 中编写译码过程, 在开发过程中 A 与 B 开发者互不沟通, 直到各自的工作完成. 之后, 我们生成随机的指令流, 首先通过汇编器, 然后将汇编器的输出传入 CKB-VM, 再从 CKB-VM 的译码过程中取回译码后的指令流, 与原始指令流进行比对并确保它们完全一致.
 
@@ -51,7 +51,7 @@ B 扩展指令集总共新增了 43 个指令, 按照作用可以细分为 4 个
 
 ## rfuzzing: 模糊测试的随机指令流生成器
 
-从上面的技术路径来看, 要完成 CKB-VM 2021 升级的测试还差最后一块拼图: 随机指令流生成器. 我们为此编写了 [rfuzzing](https://github.com/mohanson/rfuzzing) 工具, 它采用一种内部格式标记了每个待测试指令的格式, 然后依据格式不停生成指令. 在 RISC-V 的 B 扩展指令集中, 一个指令只接受两种不同类型的输入: 寄存器和立即数. 
+从上面的技术路径来看, 要完成 CKB-VM 2021 升级的测试还差最后一块拼图: 随机指令流生成器. 我们为此编写了 [rfuzzing](https://github.com/mohanson/rfuzzing) 工具, 它采用一种内部格式标记了每个待测试指令的格式, 然后依据格式不停生成指令. 在 RISC-V 的 B 扩展指令集中, 一个指令只接受两种不同类型的输入: 寄存器和立即数.
 
 关于寄存器, RISC-V 总共有 32 个寄存器, 其名称分别为:
 

@@ -1,8 +1,8 @@
-# Ensuring the Correctness of CKB-VM by Fuzzing, Part 1.
+# 演讲/Ensuring the Correctness of CKB-VM by Fuzzing, Part 1.
 
 ## Overview
 
-Fuzzing, or Fuzz Testing, is a technique commonly used in software testing. The concept behind Fuzzing is to put the stochastic data(generated automatically or semi-automatically) into a function to monitor the program against abnormalities so as to identify any potential program errors. We have adopted Fuzzing in the CKB-VM 2021 release and obtained promising results. This article will introduce the fundamentals of Fuzzing and how Fuzzing was applied in this CKB-VM 2021 release to identify and troubleshoot errors. 
+Fuzzing, or Fuzz Testing, is a technique commonly used in software testing. The concept behind Fuzzing is to put the stochastic data(generated automatically or semi-automatically) into a function to monitor the program against abnormalities so as to identify any potential program errors. We have adopted Fuzzing in the CKB-VM 2021 release and obtained promising results. This article will introduce the fundamentals of Fuzzing and how Fuzzing was applied in this CKB-VM 2021 release to identify and troubleshoot errors.
 
 ## CKB-VM 2021 Release
 
@@ -39,7 +39,7 @@ static inline uint64_t clz(uint64_t n) {
 
 ## Choosing a Technical Path for Testing
 
-43 new instructions have been added to the B extension instruction set, which can be subdivided into four sub-categories: Address Generation Instructions, Basic Bit-Manipulation, Carry-less Multiplication and Single-bit Instructions. No details will be given in this article, further contents can be found in the official [PDF](https://github.com/riscv/riscv-bitmanip/releases). 
+43 new instructions have been added to the B extension instruction set, which can be subdivided into four sub-categories: Address Generation Instructions, Basic Bit-Manipulation, Carry-less Multiplication and Single-bit Instructions. No details will be given in this article, further contents can be found in the official [PDF](https://github.com/riscv/riscv-bitmanip/releases).
 
 Such a massive number of instructions raised a problem: how to guarantee the correctness of the implementation of these 43 instructions? The first thing that came to mind was to employ the official test cases. Unfortunately, as the CKB-VM and RISC-V B extension instruction set specifications were being developed in parallel, the code was being prepared almost simultaneously with the release of version 1.0 specification, consequently the official test cases were not available at that time, leaving us stranded with no test cases.
 
@@ -49,7 +49,7 @@ To tackle these two challenges, a two-part approach was taken: the first was to 
 
 The assembler is the starting point for testing and is necessary for two reasons: 1) instead of machine code, the test code can be written in assembly code. 2) as the CKB-VM decodes the instructions before the execution, the assembler can cross-validate with the decoder embedded in the CKB-VM to ensure that an instruction is still the same after encoding and decoding.
 
-Two developers have been assigned to this task, developer A to write an assembler that is independent of the CKB-VM, and developer B to compose the decoding process in the CKB-VM. Throughout the course of development, developers A and B were in no communication with each other until the job was done. We then generated a random instruction stream, processed it thought the assembler, transferred the assembler output to the CKB-VM, extracted the decoded instruction stream from the decoding process of CKB-VM, and compared it to the original instruction stream to ensure the consistency. 
+Two developers have been assigned to this task, developer A to write an assembler that is independent of the CKB-VM, and developer B to compose the decoding process in the CKB-VM. Throughout the course of development, developers A and B were in no communication with each other until the job was done. We then generated a random instruction stream, processed it thought the assembler, transferred the assembler output to the CKB-VM, extracted the decoded instruction stream from the decoding process of CKB-VM, and compared it to the original instruction stream to ensure the consistency.
 
 Then came the testing of the instruction execution process. The lack of official test cases was not only a constraint for us, but for other RISC-V virtual machine teams as well. An example is [Spike](https://github.com/riscv-software-src/riscv-isa-sim), a well-known RISC-V simulator that has implemented most RISC-V extensions and is one of the most common used tools in the RISC-V community.
 
@@ -176,7 +176,7 @@ Notice that riscv-naive-assembler is a temporary solution, at the time of writin
 Next, create a test file containing a leading zero-count instruction, and compile it directly by using the riscv64-unknown-elf-as and riscv64-unknown-elf-ld tools:
 
 ```text
-.global _start:  
+.global _start:
     li a0, 0x000000001fffffff
     clz a0, a0
     li a7, 93
