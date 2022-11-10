@@ -168,8 +168,6 @@ nav:
         - 演讲/我们如何通过手工汇编代码击败 Rust 的零成本抽象: content/speech/zero_cost_abstractions.md
         - 演讲/EVM 简介: content/speech/evm.md
 - 杂项:
-        - 杂项/CKB-VM 的 ASM 执行模式简介: content/misc/ckb_vm_asm.md
-        - 杂项/CKB-VM 代码结构介绍: content/misc/ckb_vm_machine.md
         - 杂项/Dlib 人脸识别: content/misc/dlib.md
         - 杂项/生命游戏: content/misc/game_of_life/overview.md
         - 杂项/算法心得笔记: content/misc/hackers_delight.md
