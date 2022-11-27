@@ -1,16 +1,26 @@
 # Cryptography/椭圆曲线
 
-椭圆曲线密码学(Elliptic Curve Cryptography, ECC) 是一种基于椭圆曲线数学的公开密钥加密算法. 针对密码学应用上的椭圆曲线通常是在有限域(不是实数域)平面上的曲线.
+椭圆曲线密码学(Elliptic Curve Cryptography, ECC) 是一种基于椭圆曲线数学的公开密钥加密算法. 针对密码学应用上的椭圆曲线通常是在有限域平面上的曲线. 椭圆曲线最出名的应用是比特币系统, 比特币使用一条名为 secp256k1 的椭圆曲线用于生成公钥/私钥和进行交易签名和验签工作.
 
 ## 有限域
 
-有限域(Finite field)是包含有限个元素的域. 与其他域一样, 有限域是进行加减乘除运算都有定义并且满足特定规则的集合. 有限域最常见的例子是当 p 为素数时, 整数对 p 取模. 有限域的元素个数称为它的阶. 这种类型的有限域使用 Fp 表示. 有限域种包含三种计算, 分别是 addition, multiplication 和 inversion.
+我们首先简要介绍有限域(Finite field). 有限域是包含有限个元素的域. 与其他域一样, 有限域是进行加减乘除运算都有定义并且满足特定规则的集合. 有限域最常见的例子是当 p 为素数时, 整数对 p 取模形成的集合. 有限域的元素个数称为它的阶. 这种类型的有限域通常使用 Fp 表示. 有限域种包含三种计算, 分别是 addition, multiplication 和 inversion.
 
-一个有限域由数字 0, 1, 2 ... P - 1 组成, 其中 P 为 Prime, 各种操作定义如下:
+例: 有有限域 F<sub>23</sub>, 求其阶.
+
+答: F<sub>23</sub> = {0, 1, 2, ..., 22}, 因此其阶为 23.
+
+Fp 的三种计算操作定义如下(a, b 为 Fp 中的元素):
 
 ```text
 a + b:  (a + b) % p
 a * b:  (a * b) % p
+a.inv:  a * a.inv = 1 where a != 0
+```
+
+由三种基本计算扩展出 subtraction 和 division:
+
+```text
 a - b:  (a - b) % p
 a / b:  (a * b^(p-2)) % p
 ```
@@ -37,33 +47,33 @@ a / b:  (a * b^(p-2)) % p
 y² = x³ + ax + b
 ```
 
-描述一个特定的椭圆曲线需明确六个参数: T = (p, a, b, G, n, h). 对于比特币公钥算法 secp256k1 而言:
+描述一个特定的椭圆曲线需明确六个参数: T = (P, A, B, G, N, H). 对于比特币公钥算法 secp256k1 而言:
 
 ```py
 # 有限域的素数 2**256 - 2**32 - 2**9 - 2**8 - 2**7 - 2**6 - 2**4 - 1
-p = 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f
+P = 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f
 
 # 椭圆曲线方程参数, 即 y² = x³ + 7
-a = 0
-b = 7
+A = 0
+B = 7
 
-# 基点, secp256k1 上的每一个点都是比特币的一个公钥. 当用户希望使用其私钥生成公钥时,
-# 他们需要将其私钥乘以 Generator Point. 有限域上的每一个点都可以通过 G 生成.
+# 基点(Generator Point), secp256k1 上的每一个点都是比特币的一个公钥. 当用户希望使用其私钥生成公钥时,
+# 他们需要将其私钥乘以 G. 有限域上的每一个点都可以通过 G 生成.
 G = (0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,
      0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8)
 
 # 椭圆曲线的阶(order), 等价于该椭圆曲线上的点的个数. 椭圆曲线上的任意点 P 与 n 的乘积都是无穷远点.
 # 这是因为有限域椭圆曲线是一个循环群, (n - 1) * P = -P, 因此 n * P = -P + P = 0.
 # 私钥的取值范围小于 n.
-n = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
+N = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
 
 # 余因数(cofactor), 控制选取点的密度.
-h = 1
+H = 1
 ```
 
-## The Standards for Efficient Cryptography(SEC)
+## The Standards for Efficient Cryptography (SEC)
 
-secp256k1 在 x 轴上是对称的, 对于每一个 x 的值, y 都有两个可选值. 由于 secp256k1 的性质, 其中一个 y 值是奇数, 另一个 y 值是偶数. 因此在存储和表示比特币公钥时, 既可以使用完整坐标也可以只使用 x 坐标加 y 的奇偶标志. 非压缩格式 SEC 以 0x04 开头, 后跟 x 和 y 的值; 压缩格式 SEC 以 0x02(偶) 或 0x03(奇) 开头, 后仅跟 x. 以下是两种 Generator Point 表示方法.
+secp256k1 在 x 轴上是对称的, 对于每一个 x 的值, y 都有两个可选值. 由于 secp256k1 的性质, 其中一个 y 值是奇数, 另一个 y 值是偶数. 因此在存储和表示比特币公钥时, 既可以使用完整坐标也可以只使用 x 坐标加 y 的奇偶标志. 非压缩格式 SEC 以 0x04 开头, 后跟 x 和 y 的值; 压缩格式 SEC 以 0x02(偶) 或 0x03(奇) 开头, 后仅跟 x. 以下是两种基点的表示方法.
 
 ```py
 0479be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
@@ -79,21 +89,36 @@ secp256k1 在 x 轴上是对称的, 对于每一个 x 的值, y 都有两个可�
 
 ![img](/img/cryptography/ecc/ecclines.png)
 
-- Point at infinity: 无穷远点与任意点 P 相加都等于点 P.
-- Point negation: 具有相同 x 坐标的另一个点, 有 `P + (-P) = 0`. 对于椭圆曲线上的点 `(x, y)`, 可以写为 `-(x, y)` 或 `(x, -y)`.
-- Point addition: P + Q 等于经过 P 与 Q 的直线与椭圆曲线相交的第三点的相反数.
+- Point at infinity: 定义一个无穷远点 O 表示群的单位元. O 与任意点 P 相加都等于点 P.
+- Point negation: 具有相同 x 坐标的另一个点, 有 `P + (-P) = O`. 对于椭圆曲线上的点 `(x, y)`, 可以写为 `-(x, y)` 或 `(x, -y)`.
+- Point addition: P + Q 等于经过 P 与 Q 的直线与椭圆曲线相交的第三点的关于 x 轴的对称.
 - Point doubling: 等于 P + P.
 - Point multiplication: 等价于重复进行 N 次 point addition, 此处 N 为整数而非有限域元素.
 
 **有限域**
 
-有论文 <https://www.cs.miami.edu/home/burt/learning/Csc609.142/ecdsa-cert.pdf>
+文章 <https://www.cs.miami.edu/home/burt/learning/Csc609.142/ecdsa-cert.pdf> 4.1 章节有详细的介绍, 此处只摘录重要结论.
 
-- Point addition: A + B = C. 需要处理几种特殊情况, 详见论文 4.1 章节
+- Point addition
+
+当 P != ±Q 时, P(x1, y1) + Q(x2, y2) = (x3, y3), 其中
+
+```py
+x3 = ((y2 - y1) / (x2 - x1)) ^ 2 - x1 - x2
+y3 = ((y2 - y1) / (x2 - x1)) * (x1 - x3) - y1
+```
 
 ![img](/img/cryptography/ecc/point_add.png)
 
-- Point doubling: 详见论文 4.1 章节.
+- Point doubling
+
+当 P != -P 时, 2 * P = (x3, y3), 其中
+
+```py
+x3 = ((3 * x1 ^ 2 + a) / (2 * y1)) ^ 2 - x * x1
+y3 = ((3 * x1 ^ 2 + a) / (2 * y1)) * (x1 - x3) - y1
+```
+
 - Point multiplication: 等价于重复进行 N 次 point addition, 此处 N 为整数而非有限域元素.
 
 例: 有有限域 F<sub>23</sub> 和椭圆曲线 y² = x³ + x + 4, P = (4, 7), Q = (13, 11), 求 P + Q
