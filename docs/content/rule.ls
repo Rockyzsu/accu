@@ -11,6 +11,8 @@ R *.binance.me
 
 R   discord.com
 R *.discord.com
+R   discord.gg
+R *.discord.gg
 R   discordapp.com
 R *.discordapp.com
 R  .discordapp.net
