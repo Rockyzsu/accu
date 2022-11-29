@@ -2,21 +2,7 @@
 
 ## 内容摘要
 
-accu.cc 是一个独立博客站点, 其主要记录和分享 Mohanson 的知识. 你恰好发现了它. 这里记录了:
-
-- [数字图像处理](/content/pil/channel/): 数字图像处理相关算法. 一切的原点, 本站的初衷.
-- [Game Boy 仿真器](/content/gameboy/preface/): 使用 Rust 实现一个功能齐全的 Game Boy 仿真器. 本系列文章最初准备出版, 但由于与任天堂存在版权问题而破产.
-- [遗传算法](/content/ga/sga/): 仿生学上的奇迹.
-- [Linux x64 汇编](/content/linux_x64_asm/linux_x64_part1/): 想知道你的代码是如何在操作系统上运行的? 来学汇编吧.
-- [JIT 编译器原理简述](/content/jit_tour/principle/): 自己动手实现一门编程语言的解释器和 JIT 编译器.
-- [Cryptography](content/cryptography/ecc): 一些密码学随笔.
-- [Python](content/python/f_strings.md): 一些 Python 随笔.
-- [Go](content/go/read_line.md): 一些 Golang 随笔.
-- [Rust 速成课](/content/rust_crash/overview/): 为慕课网制作的 Rust 入门课程.
-- [AHK](content/ahk/overview.md): 自动化鼠标与键盘操作.
-- [圣杯](/content/sangreal/overview/): 追寻量化交易圣杯之路.
-- [杂项](/content/misc/minits/): 暂时未分类的文章.
-- [竹书纪年](content/diary/2019.md): 一些过往的闪回.
+accu.cc 是一个独立博客站点, 其主要记录和分享 Mohanson 的知识. 你恰好发现了它.
 
 ## 关于作者
 
