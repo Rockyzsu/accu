@@ -25,19 +25,19 @@ a - b:  (a - b) % p
 a / b:  (a * b^(p-2)) % p
 ```
 
-除法是一个特殊情况, 我们实际上需要求的是 b<sup>-1</sup>. 根据费马小定理(Fermat's little theorem), b<sup>p-1</sup> = 1 (mod p), 因此有 b \* b<sup>p-2</sup> = 1 (mod p), 因此 b<sup>-1</sup> = b<sup>p-2</sup>.
+除法是一个特殊情况, 我们实际上需要求的是 b⁻¹. 根据费马小定理(Fermat's little theorem), b<sup>p-1</sup> = 1 (mod p), 因此有 b \* b<sup>p-2</sup> = 1 (mod p), 因此 b⁻¹ = b<sup>p-2</sup>.
 
 例: 有有限域 F₂₃, 求:
 
 0. 12 + 20
 0. 8 * 9
-0. 8<sup>-1</sup>
+0. 8⁻¹
 
 答:
 
 0. 12 + 20 = (12 + 20) % 23 = 9
 0. 8 * 9 = (8 * 9) % 23 = 3
-0. 8<sup>-1</sup> = 8 ^ (23 - 2) % 23 = 3
+0. 8⁻¹ = 8 ^ (23 - 2) % 23 = 3
 
 ## 椭圆曲线
 
