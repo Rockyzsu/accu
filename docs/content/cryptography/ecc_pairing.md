@@ -81,7 +81,38 @@ e(3, 4) * e(3, 5) = 2^(3 * 4) * 2^(3 * 5) = 2¹² * 2¹⁵ = 2²⁷.
 0. Optimal ate pairing: e: (G₁ x G₂) → G<sub>T</sub>
 0. ECC: Pairing
 
+## R-torsion
+
+定义椭圆曲线上点的阶 (order): 椭圆曲线上的点乘以它的阶等于无穷远点.
+
+定义 r-torsion: 所有阶小于 r 组成的点的集合.
+
+例如考虑 E/F₁₀₁: y² = x³ + x + 1, 该曲线的阶是 105 = 3·5·7, 定义 G = (47, 12). 现有两点 P, Q. 其中 P = G * 35 =
+(28, 8), Q = G * 5 = (55, 64). 可知 P 的阶是 3, Q 的阶是 21. 我们称 P, Q 都位于 21-torsion 内. 21-torsion 集合中总共有 21 个点.
+
+## Divisors
+
+椭圆曲线 E 上的除数 D 是表示 E 上多组点的一种便捷方式. D 有两个属性, 分别叫做 degree 和 support. 举一组实际的例子来说明 divisor, degree 和 support.
+
+例: 有 P, Q, R, S ∈ E(Fq). 令 D₁ = 2(P) − 3(Q), D₂ = 3(Q) + (R) − (S), 有 Deg(D₁) = 2 − 3 = −1, Deg(D₂) = 3 + 1 − 1 = 3. D₁ + D₂ = 2(P) + (R) − (S), 因此自然地 Deg(D₁ + D₂) = Deg(D₁) + Deg(D₂) = 2. Supp(D₁) = {P, Q}, Supp(D₂) =
+{Q, R, S}, 最后有 Supp(D₁ + D₂) = {P, R, S}.
+
+将除数与 E 上的函数 f 相关联是记下 f 和 E 的交点的一种简便方法. 考虑 "line function": ℓ : y = λx + ν, 它与椭圆曲线相交于 P, Q 和 -(P+Q), 不要忘记它同时也在无穷远点和椭圆曲线相较, 因此它的除数是 (ℓ) = (P) + (Q) + (−(P + Q)) − 3(O). 如果 P 与 Q 为同一个点, 那 (ℓ) = 2(P) − 2(P) − 3(O). 以上两种情况, 除数的 degree 均为 0.
+
+> 这里我没太明白为什么要减去 3(O), 以及 degree 为什么是 0.
+
+函数之间的代数计算可以转换为除数之间的代数计算. 若 F, G 为 E 上的函数, 有 (F * G) = (F) + (G), (F / G) = (F) - (G).
+
+## The divisor class group
+
+我们使用 Div(E) 表示 E 上所有的 divisor 构成的群, Div⁰(E) 表示所有 degree 为 0 构成的 divisor 群, 有 Div⁰(E) ⊂ Div(E). 如果 E 上的除数 D 等于某个函数的除数, 即 D = (f), 则 D 称为 principal divisor. 有 Prin(E) ⊂ Div⁰(E) ⊂ Div(E).
+
+例: 考虑 E/F₁₀₃: y² = x³ + 20x + 20, 点 P = (26, 20), Q = (63, 78), R = (59, 95), S = (24, 25), T = (77, 84),
+U = (30, 99) 均位于 E 上. Divisor (S) + (T) − (P) ∈ Div(E) 但不属于 Div⁰(E), 因为它的 degree 为 1. Divisor (P) + (Q) − (R) − (S) ∈ Div⁰(E), 但不是 principal divisor, 因为 P + Q − R − S = (18, 49) ≠ O. Divisor (P) + (Q) − (R) − (T) 是 principal, 因为它的 degree 为 0 且 P + Q − R − T = O.
+
+
 ## 参考
 
 - [1] VitalikButerin, Exploring Elliptic Curve Pairings, <https://medium.com/@VitalikButerin/exploring-elliptic-curve-pairings-c73c1864e627>
 - [2] Joshua Fitzgerald, What are zk-SNARKs? Pairings (Part 1), <https://medium.com/coinmonks/what-are-zk-snarks-pairings-part-1-a76b58f1a51b>
+- [3] Pairings for beginners, Craig Costello, <https://static1.squarespace.com/static/5fdbb09f31d71c1227082339/t/5ff394720493bd28278889c6/1609798774687/PairingsForBeginners.pdf>
