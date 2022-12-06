@@ -116,6 +116,7 @@ nav:
         - JIT 编译器原理简述/实现 Brainfuck 解释器与 IR 优化: content/jit_tour/brainfuck_interpreter.md
         - JIT 编译器原理简述/实现 Brainfuck JIT 编译器: content/jit_tour/brainfuck_jit.md
 - Cryptography:
+        - Cryptography/群环域: content/cryptography/group_ring_field.md
         - Cryptography/椭圆曲线: content/cryptography/ecc.md
         - Cryptography/椭圆曲线签名与验签: content/cryptography/ecdsa.md
         - Cryptography/椭圆曲线签名的错误用法: content/cryptography/ecdsa_ps3_hack.md
