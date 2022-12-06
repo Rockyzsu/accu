@@ -59,6 +59,9 @@ R *.twitter.com
 R   v2ex.com
 R *.v2ex.com
 
+R   wikipedia.org
+R *.wikipedia.org
+
 R   ycombinator.com
 R *.ycombinator.com
 
