@@ -1,4 +1,4 @@
-# Cryptography/椭圆曲线双线性配对(Pairing)
+# Cryptography/椭圆曲线双线性配对
 
 椭圆曲线中的双线性配对是一个非常复杂的议题. 我最早是从以太坊虚拟机的预编译合约中了解到这个概念: <https://eips.ethereum.org/EIPS/eip-197>. 随后工作要求将该算法移植到 RISC-V 上, 并且对它该算法的 cycles 消耗提出了非常严苛的要求, 真的是生活艰难!
 
