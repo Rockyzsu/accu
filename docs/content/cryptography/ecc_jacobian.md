@@ -132,7 +132,7 @@ assert p + q == secp256k1.I
 assert (EcJacobian.encode(p) + EcJacobian.encode(q)).decode() == secp256k1.I
 ```
 
-完整代码: <https://github.com/mohanson/secp256k1-python>
+完整代码: <https://github.com/mohanson/cryptography-python>
 
 ## 参考
 

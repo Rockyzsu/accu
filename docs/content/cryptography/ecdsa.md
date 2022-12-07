@@ -67,7 +67,7 @@ assert v == r
 print('pass')
 ```
 
-完整代码: <https://github.com/mohanson/secp256k1-python>
+完整代码: <https://github.com/mohanson/cryptography-python>
 
 ## 参考
 

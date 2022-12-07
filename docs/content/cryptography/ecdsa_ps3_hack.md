@@ -40,7 +40,7 @@ prikey = (s1 * m2 - s2 * m1) / (s2 - s1) / r1
 assert prikey.x == 0x5f6717883bef25f45a129c11fcac1567d74bda5a9ad4cbffc8203c0da2a1473c
 ```
 
-完整代码: <https://github.com/mohanson/secp256k1-python>
+完整代码: <https://github.com/mohanson/cryptography-python>
 
 ## 参考
 
