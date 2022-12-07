@@ -115,4 +115,4 @@ U = (30, 99) 均位于 E 上. Divisor (S) + (T) − (P) ∈ Div(E) 但不属于 
 
 - [1] VitalikButerin, Exploring Elliptic Curve Pairings, <https://medium.com/@VitalikButerin/exploring-elliptic-curve-pairings-c73c1864e627>
 - [2] Joshua Fitzgerald, What are zk-SNARKs? Pairings (Part 1), <https://medium.com/coinmonks/what-are-zk-snarks-pairings-part-1-a76b58f1a51b>
-- [3] Pairings for beginners, Craig Costello, <https://static1.squarespace.com/static/5fdbb09f31d71c1227082339/t/5ff394720493bd28278889c6/1609798774687/PairingsForBeginners.pdf>
+- [3] Pairings for beginners, Craig Costello, <https://www.craigcostello.com.au/tutorials>
