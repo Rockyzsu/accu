@@ -82,6 +82,32 @@ assert polydiv(px, qx) == [2.5]      # 2.5
 assert polymod(px, qx) == [-1, 10.5] # 10.5x - 1
 ```
 
+## 多项式求模逆
+
+多项式的模逆要用到扩展欧几里得算法(Extended euclidean algorithm). 所谓的模逆就是 i1 * c1 % c2 == 1, 其中 i1 为 c1 关于 c2 的模逆.
+
+```py
+def polydeg(c1):
+    d = len(c1) - 1
+    while c1[d] == 0 and d:
+        d -= 1
+    return d
+
+def polyinv(c1, c2):
+    # Algorithm: https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm
+    newt, t = [1], [0]
+    newr, r = c1, c2
+    while polydeg(newr):
+        quotient = polydiv(r, newr)
+        r, newr = newr, polysub(r, polymul(newr, quotient))
+        t, newt = newt, polysub(t, polymul(newt, quotient))
+    return [e/newr[0] for e in newt[:polydeg(c2)]]
+
+assert polymod(polymul(polyinv(px, qx), px), qx)[0] == 1
+```
+
+完整代码: <https://github.com/mohanson/cryptography-python/blob/master/polynomial_math.py>
+
 ## 使用 Numpy 计算多项式
 
 ```py
