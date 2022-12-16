@@ -106,7 +106,7 @@ def polyinv(c1, c2):
 assert polymod(polymul(polyinv(px, qx), px), qx)[0] == 1
 ```
 
-完整代码: <https://github.com/mohanson/cryptography-python/blob/master/polynomial_math.py>
+完整代码: <https://github.com/mohanson/cryptography-python/blob/master/polynomial.py>
 
 ## 使用 Numpy 计算多项式
 
