@@ -62,7 +62,7 @@ for i in range(0, 256):
 h = int.from_bytes(hashlib.sha256(m).digest(), 'little')
 for i in range(0, 256):
     b = h >> i & 1
-    assert sig[i] == sk[b][i]
+    assert hashlib.sha256(sig[i]).digest() == pk[b][i]
 ```
 
 ## 资源消耗分析
@@ -70,6 +70,7 @@ for i in range(0, 256):
 - 私钥大小: 16384 字节
 - 公钥大小: 16384 字节
 - 签名大小: 8192 字节
+- 验签哈希次数: 256 次
 
 可见比起椭圆曲线签名而言非常浪费空间. 原始 Lamport 签名有许多变种, 会在哈希次数和签名大小之间有所取舍, 例如参考 2 中 karlgluck 的算法会通过增加哈希次数的方式降低签名大小.
 
