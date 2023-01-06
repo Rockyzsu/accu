@@ -126,6 +126,7 @@ nav:
         - Cryptography/KZG 多项式承诺: content/cryptography/kzg.md
         - Cryptography/蒙哥马利约分算法: content/cryptography/montgomery.md
         - Cryptography/默克尔树: content/cryptography/merkle_tree.md
+        - Cryptography/抗量子 Lamport 签名: content/cryptography/lamport.md
         - Cryptography/RC4: content/cryptography/rc4.md
         - Cryptography/谷歌两步验证算法实现: content/cryptography/2fa.md
 - Python:

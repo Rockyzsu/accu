@@ -121,6 +121,6 @@ U = (30, 99) 均位于 E 上. Divisor (S) + (T) − (P) ∈ Div(E) 但不属于 
 
 ## 参考
 
-- [1] VitalikButerin, Exploring Elliptic Curve Pairings, <https://medium.com/@VitalikButerin/exploring-elliptic-curve-pairings-c73c1864e627>
-- [2] Joshua Fitzgerald, What are zk-SNARKs? Pairings (Part 1), <https://medium.com/coinmonks/what-are-zk-snarks-pairings-part-1-a76b58f1a51b>
-- [3] Pairings for beginners, Craig Costello, <https://www.craigcostello.com.au/tutorials>
+- [1] [VitalikButerin. Exploring Elliptic Curve Pairings.](https://medium.com/@VitalikButerin/exploring-elliptic-curve-pairings-c73c1864e627)
+- [2] [Joshua Fitzgerald. What are zk-SNARKs? Pairings (Part 1).](https://medium.com/coinmonks/what-are-zk-snarks-pairings-part-1-a76b58f1a51b)
+- [3] [Craig Costello. Pairings for beginners.](https://www.craigcostello.com.au/tutorials>)

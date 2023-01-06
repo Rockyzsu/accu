@@ -44,4 +44,4 @@ assert prikey.x == 0x5f6717883bef25f45a129c11fcac1567d74bda5a9ad4cbffc8203c0da2a
 
 ## 参考
 
-- [1] onyb: Quiz: The Playstation 3 Hack <https://onyb.gitbook.io/secp256k1-python/the-playstation-3-hack>
+- [1] [Onyb. Quiz: The Playstation 3 Hack.](https://onyb.gitbook.io/secp256k1-python/the-playstation-3-hack)

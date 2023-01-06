@@ -110,9 +110,9 @@ def vanish(c1):
 
 ## 参考
 
-- [1] Kate, Zaverucha and Goldberg, Polynomial commits <https://cacr.uwaterloo.ca/techreports/2010/cacr2010-10.pdf>
-- [2] Dapp Learning, Polynomial Commitment KZG with Examples(1), <https://www.youtube.com/watch?v=n4eiiCDhTes>
-- [3] Dapp Learning, Polynomial Commitment KZG with Examples(2), <https://www.youtube.com/watch?v=NVvNHe_RGZ8>
-- [4] Dapp Learning, Polynomial Commitment KZG with Examples, <https://copper-witch-857.notion.site/Polynomial-KZG-or-Kate-Commitment-DappLearning-Notes-fc426c8cb9a14878840852506865f13b>
-- [5] Xiang, 多项式承诺，正在重塑整个区块链, <https://foresightnews.pro/article/detail/17988>
-- [6] Dankrad Feist, KZG polynomial commitments, <https://dankradfeist.de/ethereum/2021/10/13/kate-polynomial-commitments-mandarin.html>
+- [1] [Kate, Zaverucha and Goldberg. Polynomial commits.](https://cacr.uwaterloo.ca/techreports/2010/cacr2010-10.pdf)
+- [2] [Dapp Learning. Polynomial Commitment KZG with Examples(1).](https://www.youtube.com/watch?v=n4eiiCDhTes)
+- [3] [Dapp Learning. Polynomial Commitment KZG with Examples(2).](https://www.youtube.com/watch?v=NVvNHe_RGZ8)
+- [4] [Dapp Learning. Polynomial Commitment KZG with Examples.](https://copper-witch-857.notion.site/Polynomial-KZG-or-Kate-Commitment-DappLearning-Notes-fc426c8cb9a14878840852506865f13b)
+- [5] [Xiang. 多项式承诺，正在重塑整个区块链.](https://foresightnews.pro/article/detail/17988)
+- [6] [Dankrad Feist. KZG polynomial commitments.](https://dankradfeist.de/ethereum/2021/10/13/kate-polynomial-commitments-mandarin.html)

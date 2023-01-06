@@ -158,6 +158,6 @@ assert N_INVERSE == 0xf57a22b791888c6bd8afcbd01833da809ede7d651eca6ac987d20782e4
 
 ## 参考
 
-- Peter L. Montgomery, Modular Multiplication Without Trial Division, [https://www.ams.org/journals/mcom/1985-44-170/S0025-5718-1985-0777282-X/S0025-5718-1985-0777282-X.pdf](https://www.ams.org/journals/mcom/1985-44-170/S0025-5718-1985-0777282-X/S0025-5718-1985-0777282-X.pdf)
-- Wikipedia, Extended_Euclidean_algorithm, [https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm)
-- Eric Schorn, Optimizing Pairing-Based Cryptography: Montgomery Arithmetic in Rust, [https://research.nccgroup.com/2021/06/09/optimizing-pairing-based-cryptography-montgomery-arithmetic-in-rust/](https://research.nccgroup.com/2021/06/09/optimizing-pairing-based-cryptography-montgomery-arithmetic-in-rust/)
+- [1] [Peter L. Montgomery, Modular Multiplication Without Trial Division.](https://www.ams.org/journals/mcom/1985-44-170/S0025-5718-1985-0777282-X/S0025-5718-1985-0777282-X.pdf)
+- [2] [Wikipedia. Extended_Euclidean_algorithm.](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm)
+- [3] [Eric Schorn. Optimizing Pairing-Based Cryptography: Montgomery Arithmetic in Rust.](https://research.nccgroup.com/2021/06/09/optimizing-pairing-based-cryptography-montgomery-arithmetic-in-rust/)

@@ -132,4 +132,4 @@ print('polydiv rem', rem)  # 10.5x - 1
 
 ## 参考
 
-- [1] wiki, 多项式, <https://zh.wikipedia.org/wiki/%E5%A4%9A%E9%A0%85%E5%BC%8F>
+- [1] [Wikipedia, 多项式.](https://zh.wikipedia.org/wiki/%E5%A4%9A%E9%A0%85%E5%BC%8F)

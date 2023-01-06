@@ -294,9 +294,9 @@ print(pubkey[32:64].hex())
 
 ## 参考
 
-- [1] Wiki: Elliptic curve point multiplication <https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication>
-- [2] river: SEC Format <https://river.com/learn/terms/s/sec-format/>
-- [3] ANDREA CORBELLINI: Elliptic Curve Cryptography: a gentle introduction <https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/>
-- [4] onyb: Point Addition in Python <https://onyb.gitbook.io/secp256k1-python/point-addition-in-python>
-- [5] onyb: Scalar Multiplication in Python <https://onyb.gitbook.io/secp256k1-python/scalar-multiplication-in-python>
-- [6] Don Johnson, Alfred Menezes and Scott Vanstone, The Elliptic Curve Digital Signature Algorithm (ECDSA) <https://www.cs.miami.edu/home/burt/learning/Csc609.142/ecdsa-cert.pdf>
+- [1] [Wiki. Elliptic curve point multiplication.](https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication)
+- [2] [River. SEC Format.](https://river.com/learn/terms/s/sec-format/)
+- [3] [ANDREA CORBELLINI. Elliptic Curve Cryptography: a gentle introduction.](https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/)
+- [4] [Onyb. Point Addition in Python.](https://onyb.gitbook.io/secp256k1-python/point-addition-in-python)
+- [5] [Onyb. Scalar Multiplication in Python.](https://onyb.gitbook.io/secp256k1-python/scalar-multiplication-in-python)
+- [6] [Don Johnson, Alfred Menezes and Scott Vanstone. The Elliptic Curve Digital Signature Algorithm (ECDSA).](https://www.cs.miami.edu/home/burt/learning/Csc609.142/ecdsa-cert.pdf)

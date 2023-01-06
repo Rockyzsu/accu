@@ -136,5 +136,5 @@ assert (EcJacobian.encode(p) + EcJacobian.encode(q)).decode() == secp256k1.I
 
 ## 参考
 
-- [1] 熠智科技, 椭圆曲线科普, 3.4 Projective Space <https://download.yeez.tech/doc/ECcurve.pdf>,
-- [2] Anonymous, Wikibooks <https://en.wikibooks.org/wiki/Cryptography/Prime_Curve/Jacobian_Coordinates>
+- [1] [熠智科技. 椭圆曲线科普, 3.4 Projective Space.](https://download.yeez.tech/doc/ECcurve.pdf)
+- [2] [Anonymous. Wikibooks.](https://en.wikibooks.org/wiki/Cryptography/Prime_Curve/Jacobian_Coordinates)

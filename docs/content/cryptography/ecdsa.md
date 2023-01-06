@@ -71,5 +71,5 @@ print('pass')
 
 ## 参考
 
-- [1] onyb: ECDSA <https://onyb.gitbook.io/secp256k1-python/ecdsa>
-- [2] Don Johnson, Alfred Menezes and Scott Vanstone, The Elliptic Curve Digital Signature Algorithm (ECDSA) <https://www.cs.miami.edu/home/burt/learning/Csc609.142/ecdsa-cert.pdf>
+- [1] [Onyb. ECDSA.](https://onyb.gitbook.io/secp256k1-python/ecdsa)
+- [2] [Don Johnson, Alfred Menezes and Scott Vanstone. The Elliptic Curve Digital Signature Algorithm (ECDSA).](https://www.cs.miami.edu/home/burt/learning/Csc609.142/ecdsa-cert.pdf)
