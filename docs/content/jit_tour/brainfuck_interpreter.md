@@ -160,5 +160,5 @@ enum IR {
 
 ## 参考
 
-- [1] 中间语言, 维基百科, [https://zh.wikipedia.org/zh-hans/中間語言](https://zh.wikipedia.org/zh-hans/中間語言)
-- [2] 邱奇-图灵论题, 维基百科, [https://en.wikipedia.org/wiki/Church–Turing_thesis](https://en.wikipedia.org/wiki/Church–Turing_thesis)
+- [1] [维基百科. 中间语言.](https://zh.wikipedia.org/zh-hans/中間語言)
+- [2] [维基百科. 邱奇-图灵论题.](https://en.wikipedia.org/wiki/Church–Turing_thesis)

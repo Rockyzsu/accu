@@ -60,5 +60,5 @@ end := time.Unix(int64(1<<32-1), 0)
 
 ## 参考
 
-- [1] 维基: 字节序 [https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82%E5%BA%8F](https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82%E5%BA%8F)
-- [2] 维基: 千年虫 [https://zh.wikipedia.org/zh-hans/2000%E5%B9%B4%E9%97%AE%E9%A2%98](https://zh.wikipedia.org/zh-hans/2000%E5%B9%B4%E9%97%AE%E9%A2%98)
+- [1] [维基百科. 字节序.](https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82%E5%BA%8F)
+- [2] [维基百科. 千年虫.](https://zh.wikipedia.org/zh-hans/2000%E5%B9%B4%E9%97%AE%E9%A2%98)

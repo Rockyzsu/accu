@@ -138,4 +138,4 @@ Based Indexed-Relative: The effective address is found by combining Based and In
 
 ## 参考
 
-- [1] Gray Hat Hacking the Ethical Hacker's Handbook
+- [1] Allen Harper. Gray Hat Hacking the Ethical Hacker's Handbook.

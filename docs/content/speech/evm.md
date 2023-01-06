@@ -268,5 +268,5 @@ Return  = 37
 
 ## 参考
 
-- [1] Ethereum Yellow Paper: APPENDIX H. VIRTUAL MACHINE SPECIFICATION. P28.
-- [2] Ethereum Yellow Paper: APPENDIX G. FEE SCHEDULE. P25.
+- [1] Ethereum Yellow Paper. APPENDIX H, VIRTUAL MACHINE SPECIFICATION, P28.
+- [2] Ethereum Yellow Paper. APPENDIX G, FEE SCHEDULE, P25.

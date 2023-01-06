@@ -83,4 +83,4 @@ $ echo $?
 
 ## 参考
 
-- [1] Hello, JIT World: The Joy of Simple JITs, Josh Haberman, [https://blog.reverberate.org/2012/12/hello-jit-world-joy-of-simple-jits.html](https://blog.reverberate.org/2012/12/hello-jit-world-joy-of-simple-jits.html)
+- [1] [Josh Haberman. Hello, JIT World: The Joy of Simple JITs.](https://blog.reverberate.org/2012/12/hello-jit-world-joy-of-simple-jits.html)

@@ -44,4 +44,4 @@ z = (x – μ) / σ
 
 ## 参考
 
-- [1] 光大证券: 基于阻力支撑相对强度(RSRS)的市场择时-技术择时系列报告之一 [http://pg.jrj.com.cn/acc/Res/CN_RES/INVEST/2017/5/1/b4f37401-639d-493f-a810-38246b9c3c7d.pdf](http://pg.jrj.com.cn/acc/Res/CN_RES/INVEST/2017/5/1/b4f37401-639d-493f-a810-38246b9c3c7d.pdf)
+- [1] [光大证券. 基于阻力支撑相对强度(RSRS)的市场择时-技术择时系列报告之一.](http://pg.jrj.com.cn/acc/Res/CN_RES/INVEST/2017/5/1/b4f37401-639d-493f-a810-38246b9c3c7d.pdf)

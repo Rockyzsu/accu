@@ -183,4 +183,4 @@ for i, (pop, fit) in enumerate(ga.optret(ga.evolve)()):
 
 ## 参考
 
-- [1] 方弦: 遗传算法: 内存中的进化 [http://songshuhui.net/archives/10462](http://songshuhui.net/archives/10462)
+- [1] [方弦. 遗传算法: 内存中的进化.](http://songshuhui.net/archives/10462)

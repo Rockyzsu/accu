@@ -31,5 +31,5 @@
 
 ## 参考
 
-- [1] 维基: 康威生命游戏 [https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
-- [2] 维基: 细胞自动机 [https://zh.wikipedia.org/wiki/%E7%B4%B0%E8%83%9E%E8%87%AA%E5%8B%95%E6%A9%9F](https://zh.wikipedia.org/wiki/%E7%B4%B0%E8%83%9E%E8%87%AA%E5%8B%95%E6%A9%9F)
+- [1] [维基百科. 康威生命游戏.](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+- [2] [维基百科. 细胞自动机.](https://zh.wikipedia.org/wiki/%E7%B4%B0%E8%83%9E%E8%87%AA%E5%8B%95%E6%A9%9F)

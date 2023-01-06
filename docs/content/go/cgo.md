@@ -98,4 +98,4 @@ $ ./foo                     # 执行可执行文件, 输出 I am foo!
 
 ## 参考
 
-- [1] Go: C? Go? Cgo! [https://blog.golang.org/c-go-cgo](https://blog.golang.org/c-go-cgo)
+- [1] [Go. C? Go? Cgo!](https://blog.golang.org/c-go-cgo)

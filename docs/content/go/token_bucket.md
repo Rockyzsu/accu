@@ -81,4 +81,4 @@ ff90c9f1d438f80ce6392ff5d79da463 bar.tar
 
 ## 参考
 
-- [1] Go: RateLimiting [https://github.com/golang/go/wiki/RateLimiting](https://github.com/golang/go/wiki/RateLimiting)
+- [1] [Go. RateLimiting.](https://github.com/golang/go/wiki/RateLimiting)
