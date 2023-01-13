@@ -127,6 +127,7 @@ nav:
         - Cryptography/蒙哥马利约分算法: content/cryptography/montgomery.md
         - Cryptography/默克尔树: content/cryptography/merkle_tree.md
         - Cryptography/抗量子 Lamport 签名: content/cryptography/lamport.md
+        - Cryptography/抗量子 W-OTS 签名: content/cryptography/winternitz.md
         - Cryptography/RC4: content/cryptography/rc4.md
         - Cryptography/谷歌两步验证算法实现: content/cryptography/2fa.md
 - Python:
