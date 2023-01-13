@@ -43,15 +43,15 @@ for i in range(0, 256):
 
 首先, 我们将消息进行哈希, 得到一个 256 位哈希值. 然后, 对于哈希中的每个位, 根据位的值, 从组成她的私钥的相应数字对中选择一个数字(即, 如果位是 0, 则选择了第一个数字, 如果位是 1, 选择第二个). 这会产生 256 个 u256 的序列. 这些数字就是该消息的签名.
 
-请注意, 签名使用了最初创建的私钥, 因此在完成消息的签名后不应该继续使用该私钥.
+请注意, 签名使用了最初创建的私钥, 因此在完成消息的签名后不应该继续使用该私钥, 否则中间人可以利用前一条的消息伪造消息和签名.
 
 ```py
-m = b'Lamport signatures are cool!'
+m = b'The quick brown fox jumps over the lazy dog'
 h = int.from_bytes(hashlib.sha256(m).digest(), 'little')
-sig = []
+sig = [None for _ in range(256)]
 for i in range(0, 256):
     b = h >> i & 1
-    sig.append(sk[b][i])
+    sig[i] = sk[b][i]
 ```
 
 **验签**
@@ -73,6 +73,33 @@ for i in range(0, 256):
 - 验签哈希次数: 256 次
 
 可见比起椭圆曲线签名而言非常浪费空间. 原始 Lamport 签名有许多变种, 会在哈希次数和签名大小之间有所取舍, 例如参考 2 中 karlgluck 的算法会通过增加哈希次数的方式降低签名大小.
+
+## 完整代码
+
+```py
+import hashlib
+import secrets
+
+sk = [[None for _ in range(256)] for _ in range(2)]
+pk = [[None for _ in range(256)] for _ in range(2)]
+for i in range(0, 256):
+    sk[0][i] = secrets.token_bytes(32)
+    sk[1][i] = secrets.token_bytes(32)
+    pk[0][i] = hashlib.sha256(sk[0][i]).digest()
+    pk[1][i] = hashlib.sha256(sk[1][i]).digest()
+
+m = b'The quick brown fox jumps over the lazy dog'
+h = int.from_bytes(hashlib.sha256(m).digest(), 'little')
+sig = [None for _ in range(256)]
+for i in range(0, 256):
+    b = h >> i & 1
+    sig[i] = sk[b][i]
+
+h = int.from_bytes(hashlib.sha256(m).digest(), 'little')
+for i in range(0, 256):
+    b = h >> i & 1
+    assert hashlib.sha256(sig[i]).digest() == pk[b][i]
+```
 
 ## 参考
 
