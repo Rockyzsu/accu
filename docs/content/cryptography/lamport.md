@@ -46,11 +46,11 @@ for i in range(0, 256):
 请注意, 签名使用了最初创建的私钥, 因此在完成消息的签名后不应该继续使用该私钥, 否则中间人可以利用前一条的消息伪造消息和签名.
 
 ```py
-m = b'The quick brown fox jumps over the lazy dog'
-h = int.from_bytes(hashlib.sha256(m).digest(), 'little')
+raw = b'The quick brown fox jumps over the lazy dog'
+msg = int.from_bytes(hashlib.sha256(raw).digest(), 'little')
 sig = [None for _ in range(256)]
 for i in range(0, 256):
-    b = h >> i & 1
+    b = msg >> i & 1
     sig[i] = sk[b][i]
 ```
 
@@ -59,9 +59,8 @@ for i in range(0, 256):
 验证签名的过程就是检验签名是否和事先公开的公钥一致.
 
 ```py
-h = int.from_bytes(hashlib.sha256(m).digest(), 'little')
 for i in range(0, 256):
-    b = h >> i & 1
+    b = msg >> i & 1
     assert hashlib.sha256(sig[i]).digest() == pk[b][i]
 ```
 
@@ -88,16 +87,15 @@ for i in range(0, 256):
     pk[0][i] = hashlib.sha256(sk[0][i]).digest()
     pk[1][i] = hashlib.sha256(sk[1][i]).digest()
 
-m = b'The quick brown fox jumps over the lazy dog'
-h = int.from_bytes(hashlib.sha256(m).digest(), 'little')
+raw = b'The quick brown fox jumps over the lazy dog'
+msg = int.from_bytes(hashlib.sha256(raw).digest(), 'little')
 sig = [None for _ in range(256)]
 for i in range(0, 256):
-    b = h >> i & 1
+    b = msg >> i & 1
     sig[i] = sk[b][i]
 
-h = int.from_bytes(hashlib.sha256(m).digest(), 'little')
 for i in range(0, 256):
-    b = h >> i & 1
+    b = msg >> i & 1
     assert hashlib.sha256(sig[i]).digest() == pk[b][i]
 ```
 
