@@ -24,14 +24,14 @@ Lamport 签名基于密码学安全的哈希函数, 由 Leslie Lamport 在 1979 
 
 **创建私钥公钥**
 
-Lamport 签名是一种**一次性**签名, 对每一条消息进行签名必须生成一对新的私钥和公钥. 其私钥由 256x2 个随机 u256 组成, 构成一个二维矩阵. 公钥是对私钥中每个 u256 进行哈希, 同样构成一个二维矩阵.
+Lamport 签名是一种**一次性**签名, 对每一条消息进行签名必须生成一对新的私钥和公钥. 其私钥由 256x2 个随机 u256 组成, 构成一个二维矩阵. 公钥是对私钥中每个 u256 进行哈希, 同样构成一个二维矩阵. 哈希函数可以是任意密码学安全的哈希函数, 本文以 sha256 为例.
 
 ```py
 import hashlib
 import secrets
 
-sk = [[0 for _ in range(256)] for _ in range(2)]
-pk = [[0 for _ in range(256)] for _ in range(2)]
+sk = [[None for _ in range(256)] for _ in range(2)]
+pk = [[None for _ in range(256)] for _ in range(2)]
 for i in range(256):
     sk[0][i] = secrets.token_bytes(32)
     sk[1][i] = secrets.token_bytes(32)
@@ -41,9 +41,9 @@ for i in range(256):
 
 **签名**
 
-首先, 我们将消息进行哈希, 得到一个 256 位哈希值. 然后, 对于哈希中的每个位, 根据位的值, 从组成她的私钥的相应数字对中选择一个数字(即, 如果位是 0, 则选择了第一个数字, 如果位是 1, 选择第二个). 这会产生 256 个 u256 的序列. 这些数字就是该消息的签名.
+首先, 我们将消息进行哈希, 得到一个 256 位哈希值. 然后, 对于哈希中的每个位, 根据位的值, 从组成它的私钥的相应数字对中选择一个数字. 即, 如果位是 0, 选择私钥对应位置中的第一个数字, 如果位是 1, 则选择第二个. 这会产生 256 个 u256 的序列. 这些数字就是该消息的签名.
 
-请注意, 签名使用了最初创建的私钥, 因此在完成消息的签名后不应该继续使用该私钥, 否则中间人可以利用前一条的消息伪造消息和签名.
+需要注意的是, 签名使用了最初创建的私钥, 因此在完成消息的签名后不应该继续使用该私钥, 否则中间人可以利用前一条消息公开的部分私钥伪造消息和签名.
 
 ```py
 raw = b'The quick brown fox jumps over the lazy dog'
@@ -71,7 +71,7 @@ for i in range(256):
 - 签名大小: 8192 字节
 - 验签哈希次数: 256 次
 
-可见比起椭圆曲线签名而言非常浪费空间. 原始 Lamport 签名有许多变种, 会在哈希次数和签名大小之间有所取舍, 例如参考 2 中 karlgluck 的算法会通过增加哈希次数的方式降低签名大小.
+可见比起椭圆曲线签名而言非常浪费空间. 原始 Lamport 签名有许多变种, 针对 Lamport 签名的部分痛点做了改进, 例如允许一个私钥公钥对签名多条消息, 或是减小签名的大小等.
 
 ## 完整代码
 
@@ -102,4 +102,3 @@ for i in range(256):
 ## 参考
 
 - [1] [Zachary Ratliff. Implementing the Lamport one-time signature scheme in Python.](https://zacharyratliff.org/Lamport-Signatures/)
-- [2] [karlgluck. Hash Ladders for Shorter Lamport Signatures.](https://gist.github.com/karlgluck/8412807)
