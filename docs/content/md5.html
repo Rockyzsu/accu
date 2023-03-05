@@ -21,7 +21,8 @@
                     <span class="input-group-addon" id="basic-addon1">
                         <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
                     </span>
-                    <input class="form-control" placeholder="" aria-describedby="basic-addon1" v-model="data">
+                    <input class="form-control" placeholder="" aria-describedby="basic-addon1" v-model="data"
+                        v-on:keyup.enter="click">
                 </div>
                 <br>
                 <button type="submit" class="btn btn-default btn-lg" v-on:click="click">Hash</button>
@@ -36,11 +37,11 @@
             el: '#cb',
             data: {
                 data: '',
-                hash: '00000000000000000000000000000000'
+                hash: '0x00000000000000000000000000000000'
             },
             methods: {
                 click: function () {
-                    cb.hash = md5(cb.data)
+                    cb.hash = '0x' + md5(cb.data).toUpperCase();
                 }
             }
         })

@@ -42,9 +42,6 @@ R *.reddit.com
 R   redd.it
 R *.redd.it
 
-L   steamstatic.com
-L *.steamstatic.com
-
 R   thepiratebay.org
 R *.thepiratebay.org
 
