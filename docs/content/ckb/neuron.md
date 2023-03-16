@@ -1,6 +1,8 @@
 # CKB/Neuron 钱包
 
-Neuron 是 CKB 的全节点钱包, 截至 2023/03/14, 该钱包至少需要 45G 硬盘空间保存链上数据. 钱包下载地址: <https://github.com/nervosnetwork/neuron>.
+Neuron 是 CKB 的全节点钱包, 截至 2023/03/14, 该钱包至少需要 45G 硬盘空间保存链上数据. 钱包下载地址:
+
+<https://github.com/nervosnetwork/neuron>
 
 当第一次启动钱包时, 钱包会自动运行一个 CKB 全节点并开始同步数据. 如果你确实不希望同步一个全节点, 也可以点击帮助 -> 设置 -> 网络 -> 添加网络, 填写社区公开的 mainnet 服务地址(同步速度较慢):
 
@@ -15,18 +17,26 @@ Neuron 是 CKB 的全节点钱包, 截至 2023/03/14, 该钱包至少需要 45G 
 
 ## 创建钱包
 
-Neuron 是一个 HD(分层确定性)钱包, 由 BIP32, BIP39, BIP-43 和 BIP-44 共同定义. 当创建钱包时, 系统会显示 12 个助记词并提示你记录下来. 保管好这 12 个助记词, 遗忘或泄露都会造成财产的损失.
+Neuron 是一个 HD(Hierarchical Deterministic Wallets, 分层确定性)钱包, 由 [BIP32](https://river.com/learn/terms/b/bip-32), [BIP39](https://river.com/learn/terms/b/bip-39), BIP-43 和 [BIP-44](https://river.com/learn/terms/b/bip-44) 共同定义. 当创建钱包时, 系统会显示 12 个助记词并提示你记录下来. 保管好这 12 个助记词, 遗忘或泄露都会造成财产的损失.
 
 ## 备份钱包
 
+有多种方式可以备份您的钱包.
+
 **助记词**
 
-记住一点: 助记词 = 钱包. 任何人拿到助记词, 就意味着拥有了该钱包的一切权限.
+关于助记词, 请记住一点, 助记词等于钱包. 任何人拿到助记词, 就意味着拥有了该钱包的一切权限. 如果你不幸忘记了助记词, 那么目前也无法从钱包中恢复助记词, 因为根据 BIP32 和 BIP39, 助记词记录的是钱包的种子, 该种子必须进行一次哈希才能生成钱包, 而哈希是不可逆的.
 
 **Keystore**
 
-Keystore 是一个 JSON 文件, 要从 Keystore 恢复钱包需要一个额外的事先设置的密码. Keystore 文件 + 密码 = 钱包.
+Keystore 是以 JSON 格式存储的加密的私钥文件, 它通过一个额外的密码来保护私钥. 当此 Keystore 与密码一起使用时, 它类似于私钥. Keystore 比私钥或助记词更安全, 因为您需要密码才能访问它, 但请记住这并不意味着在网络上公开 Keystore 是安全的.
 
 **Extended Public Key**
 
-Extended Public Key (Xpub) 的介绍可以参考 <https://river.com/learn/terms/x/xpub-extended-public-key/>. 概括来说, xpub 保留了 HD 钱包的所有公钥而没有私钥, 因此它是一个只读的钱包.
+扩展公钥或 Xpub 是一个公钥, 可用于推导 HD 钱包的子公钥. Xpub 是 BIP32 建立的比特币标准, 主要由幕后的钱包使用用以推导公钥.
+
+<https://river.com/learn/terms/x/xpub-extended-public-key/>
+
+任何知道您的 Xpub 的人都可以得出 HD 钱包所有的公钥, 因此可以看到过去和将来的每一次交易. Xpub 对于将比特币接收到冷钱包很有用, 因为用户可以将其 Xpub 保持在线以生成新地址, 同时其私钥保持离线.
+
+无法通过 Xpub 推导出任何私钥, 因此通过 Xpub 导入的钱包仅仅是一个只读钱包, 无法发出交易. 泄露 Xpub 不会对资金安全造成损失, 但您的隐私将会受损.
