@@ -129,6 +129,8 @@ nav:
         - Cryptography/抗量子 W-OTS 签名: content/cryptography/winternitz.md
         - Cryptography/RC4: content/cryptography/rc4.md
         - Cryptography/谷歌两步验证算法实现: content/cryptography/2fa.md
+- CKB:
+        - CKB/Neuron 钱包: content/ckb/neuron.md
 - Python:
         - Python/f-strings: content/python/f_strings.md
         - Python/Windows 编程: content/python/windows.md
