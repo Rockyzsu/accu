@@ -17,7 +17,7 @@ Neuron 是 CKB 的全节点钱包, 截至 2023/03/14, 该钱包至少需要 45G 
 
 ## 创建钱包
 
-Neuron 是一个 HD(Hierarchical Deterministic Wallets, 分层确定性)钱包, 由 [BIP32](https://river.com/learn/terms/b/bip-32), [BIP39](https://river.com/learn/terms/b/bip-39), BIP-43 和 [BIP-44](https://river.com/learn/terms/b/bip-44) 共同定义. 当创建钱包时, 系统会显示 12 个助记词并提示你记录下来. 保管好这 12 个助记词, 遗忘或泄露都会造成财产的损失.
+Neuron 是一个 HD(Hierarchical Deterministic Wallets, 分层确定性)钱包, 由 [BIP-32](https://river.com/learn/terms/b/bip-32), [BIP-39](https://river.com/learn/terms/b/bip-39), BIP-43 和 [BIP-44](https://river.com/learn/terms/b/bip-44) 共同定义. 当创建钱包时, 系统会显示 12 个助记词并提示你记录下来. 保管好这 12 个助记词, 遗忘或泄露都会造成财产的损失.
 
 ## 备份钱包
 
