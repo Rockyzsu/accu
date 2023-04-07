@@ -37,6 +37,9 @@ R *.hackmd.io
 R   huobi.com
 R *.huobi.com
 
+R   nervos.org
+R *.nervos.org
+
 R   reddit.com
 R *.reddit.com
 R   redd.it
