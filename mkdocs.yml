@@ -131,6 +131,7 @@ nav:
         - Cryptography/谷歌两步验证算法实现: content/cryptography/2fa.md
 - CKB:
         - CKB/Neuron 钱包: content/ckb/neuron.md
+        - CKB/开发网络: content/ckb/dev.md
 - Python:
         - Python/f-strings: content/python/f_strings.md
         - Python/Windows 编程: content/python/windows.md
