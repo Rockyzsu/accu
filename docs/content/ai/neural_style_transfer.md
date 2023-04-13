@@ -1,11 +1,14 @@
-# 杂项/图像风格转移
+# 人工智能/图像风格转移
 
 Neural Style Transfer 是让机器模仿已有画作的绘画风格来把一张图片重新绘制的算法. 艺术家可能需要用毕生的心血才能创造出惊人的艺术作品, 而通过机器学习便可以用很短的时间将普通图片创造出富有大师风格的画作.
 
-![img](/img/misc/neural_style_transfer/jp.jpg)
-![img](/img/misc/neural_style_transfer/jp_maplewood.jpg)
-![img](/img/misc/neural_style_transfer/jp_starry_night.jpg)
-![img](/img/misc/neural_style_transfer/jp_greyrain.jpg)
+![img](/img/ai/neural_style_transfer/jp.jpg)
+
+![img](/img/ai/neural_style_transfer/jp_maplewood.jpg)
+
+![img](/img/ai/neural_style_transfer/jp_starry_night.jpg)
+
+![img](/img/ai/neural_style_transfer/jp_greyrain.jpg)
 
 风格转移算法可生成一张具有原图"内容"与另一张图片"风格"的新的图片. 比如, 可以很容易将梵高的"星月夜"的绘画风格转移到自己的图片上. 这里, 我们使用 keras 深度学习框架与 VGG-16 模型来完成这个功能.
 
@@ -27,7 +30,7 @@ $ pip install keras
 
 现在, 准备两张图片, 一张"内容", 一张"风格", 运行如下命令:
 
-```text
+```sh
 $ python neural_style_transfer.py path_to_your_base_image.jpg path_to_your_reference.jpg prefix_for_results
 ```
 

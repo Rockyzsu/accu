@@ -1,4 +1,4 @@
-# 杂项/Dlib 人脸识别
+# 人工智能/Dlib 人脸识别
 
 [dlib](http://dlib.net/) 是一个包含机器学习算法和工具的 c++ 库.
 
@@ -89,11 +89,11 @@ $ python3 face_detector.py obama.jpg obama_face.jpg
 
 原图:
 
-![img](/img/misc/dlib/obama.jpg)
+![img](/img/ai/dlib/obama.jpg)
 
 人脸:
 
-![img](/img/misc/dlib/obama_face_detect.jpg)
+![img](/img/ai/dlib/obama_face_detect.jpg)
 
 ## 人脸标注
 
@@ -138,7 +138,7 @@ $ bunzip2 shape_predictor_68_face_landmarks.dat.bz2
 $ python3 face_landmark_detection.py obama.jpg obama_landmark.jpg
 ```
 
-![img](/img/misc/dlib/obama_face_landmark.jpg)
+![img](/img/ai/dlib/obama_face_landmark.jpg)
 
 ## 人脸识别
 
@@ -212,7 +212,7 @@ print('distance', d)
 
 拿两张神仙的脸测试一下:
 
-![img](/img/misc/dlib/godness_d.png)
+![img](/img/ai/dlib/godness_d.png)
 
 结果是 0.333517042672, 是同一个人没错(长舒一口气).
 
@@ -220,7 +220,7 @@ print('distance', d)
 
 人脸聚类属于无监督学习. 当你有许多未标记的待分类的照片时, 使用人脸聚类是非常有用的. 待分类目录下有两张神仙的肖像和两张观海的肖像, 使用如下代码可以将神仙和观海分开.
 
-![img](/img/misc/dlib/face_clustering_data.png)
+![img](/img/ai/dlib/face_clustering_data.png)
 
 ```py
 import os

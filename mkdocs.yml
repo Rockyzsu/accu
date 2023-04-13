@@ -129,6 +129,9 @@ nav:
         - Cryptography/抗量子 W-OTS 签名: content/cryptography/winternitz.md
         - Cryptography/RC4: content/cryptography/rc4.md
         - Cryptography/谷歌两步验证算法实现: content/cryptography/2fa.md
+- 人工智能:
+        - 人工智能/图像风格转移: content/ai/neural_style_transfer.md
+        - 人工智能/Dlib 人脸识别: content/ai/dlib.md
 - CKB:
         - CKB/Neuron 钱包: content/ckb/neuron.md
         - CKB/开发网络: content/ckb/dev.md
@@ -176,10 +179,8 @@ nav:
         - 演讲/我们如何通过手工汇编代码击败 Rust 的零成本抽象: content/speech/zero_cost_abstractions.md
         - 演讲/EVM 简介: content/speech/evm.md
 - 杂项:
-        - 杂项/Dlib 人脸识别: content/misc/dlib.md
         - 杂项/生命游戏: content/misc/game_of_life/overview.md
         - 杂项/算法心得笔记: content/misc/hackers_delight.md
-        - 杂项/图像风格转移: content/misc/neural_style_transfer.md
         - 杂项/霍夫曼编码: content/misc/huffman.md
         - 杂项/时间的终结: content/misc/end_of_time.md
         - 杂项/RISC-V 工具链: content/misc/riscv_toolchains.md
