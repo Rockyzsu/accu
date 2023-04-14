@@ -45,7 +45,7 @@ def exam_imgs_size():
     imgs = glob.glob('docs/img/**/*.*', recursive=1)
     for e in imgs:
         i = PIL.Image.open(e)
-        assert i.size in [(480, 270), (360, 270)], f'imsize {e} {i.size[0]}x{i.size[1]}'
+        assert i.size in [(480, 270), (360, 270), (640, 480)], f'imsize {e} {i.size[0]}x{i.size[1]}'
 
 
 def main():
