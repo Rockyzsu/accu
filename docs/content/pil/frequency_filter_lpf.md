@@ -15,8 +15,6 @@ H(u, v) = 1; D(u, v) <  D₀
 
 其中, D₀ 为一个正常数(称为截止频率), D(u, v) 是频率域中心点 (u, v) 与频率矩形中心的距离.
 
-![img](/img/pil/frequency_filter_lpf/ilpf.jpg)
-
 ```py
 # 理想低通滤波器代码实现
 import numpy as np
@@ -85,8 +83,6 @@ im_converted.show()
 H(u, v) = 1 / [1 + [D(u, v) / D₀]²ⁿ]
 ```
 
-![img](/img/pil/frequency_filter_lpf/blpf.jpg)
-
 与 ILPF 不同, BLPF 传递函数并没有在通过频率与滤除频率之间给出明显截止的尖锐的不连续性. 对于具有平滑传递函数的滤波器, 可在这样一点上定义截止频率, 即使 H(u, v) 下降为其最大值的某个百分比的点(如 50%).
 
 ```py
@@ -138,8 +134,6 @@ H(u, v) = e ^ [-D²(u, v) / 2D₀²]
 ```
 
 其中, D₀ 是截止频率, 当 D(u, v) = D₀ 时候, GLPF 下降到最大值的 0.607 处.
-
-![img](/img/pil/frequency_filter_lpf/glpf.jpg)
 
 ```py
 # 将理想低通滤波器的 convert_2d 函数修改一下
