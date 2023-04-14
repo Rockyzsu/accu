@@ -1,4 +1,4 @@
-<div align="center" style="background-color: #FDFDFD"><img src="/img/logo.png"></div>
+![img](/img/index_logo.png)
 
 ## 内容摘要
 
@@ -16,7 +16,7 @@ repo: [https://github.com/mohanson/accu](https://github.com/mohanson/accu)
 
 ## 小额赞助
 
-![img](/img/wx_qrcode.jpg)
+![img](/img/index_qrcode.png)
 
 ## 许可协议
 

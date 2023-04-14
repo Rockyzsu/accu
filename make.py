@@ -24,9 +24,7 @@ def exam_imgs():
     imgs = [i[4:] for i in glob.glob('docs/img/**/*.*', recursive=1)]
     docs = glob.glob('docs/content/**/*.md', recursive=1)
     docs.append('docs/index.md')
-
     imgs_dict = dict.fromkeys(imgs, 0)
-    imgs_dict.pop('/img/logo.png')
 
     for e in docs:
         with open(e) as f:
