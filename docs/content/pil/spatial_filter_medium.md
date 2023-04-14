@@ -47,3 +47,5 @@ im_converted.show()
 如下是使用中值滤波去除椒盐噪声的示例. 从左至右分别为**原始图像**, 加入**椒盐噪声**后的图像, **均值滤波**后的图像与**中值滤波**后的图像
 
 ![img](/img/pil/spatial_filter_medium/sample2.jpg)
+
+![img](/img/pil/spatial_filter_medium/sample3.jpg)
