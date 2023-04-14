@@ -81,7 +81,9 @@ im_converted.show()
 
 截止频率位于距原点 D0 处的 n 阶巴特沃斯低通滤波器(BLPF)的传递函数为
 
-![img](/img/pil/frequency_filter_lpf/blpf.svg)
+```text
+H(u, v) = 1 / [1 + [D(u, v) / D₀]²ⁿ]
+```
 
 ![img](/img/pil/frequency_filter_lpf/blpf.jpg)
 
@@ -131,7 +133,9 @@ def convert_2d(r):
 
 高斯低通滤波器(GLPF)的传递函数为
 
-![img](/img/pil/frequency_filter_lpf/glpf.svg)
+```text
+H(u, v) = e ^ [-D²(u, v) / 2D₀²]
+```
 
 其中, D0 是截止频率, 当 D(u, v) = D0 时候, GLPF 下降到最大值的 0.607 处.
 
