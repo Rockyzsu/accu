@@ -18,8 +18,6 @@ def make():
     call('echo -n "Pem1L7uAVI" > site/baidu_verify_Pem1L7uAVI.html')
     call('echo -n "google-site-verification: google9b75b4b4147e247b.html" > site/google9b75b4b4147e247b.html')
     call('echo -n "google.com, pub-5236818090688638, DIRECT, f08c47fec0942fa0" > site/ads.txt')
-    call('rm site/img/favicon.ico')
-    call('cp docs/img/favicon.ico site/img/favicon.ico')
 
 
 def exam_imgs():
@@ -28,7 +26,6 @@ def exam_imgs():
     docs.append('docs/index.md')
 
     imgs_dict = dict.fromkeys(imgs, 0)
-    imgs_dict.pop('/img/favicon.ico')
     imgs_dict.pop('/img/logo.png')
 
     for e in docs:
