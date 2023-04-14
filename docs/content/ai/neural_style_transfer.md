@@ -16,11 +16,7 @@ VGG-16: VGG-16 又称为 OxfordNet，是由牛津视觉几何组(Visual Geometry
 
 ## 使用方式
 
-风格转移算法已经被包含在 keras 的官方例子里面了:
-
-[https://github.com/fchollet/keras/blob/master/examples/neural_style_transfer.py](https://github.com/fchollet/keras/blob/master/examples/neural_style_transfer.py)
-
-为了使用如上的代码, 首先需要安装 keras:
+图像风格转移算法已经被包含在 keras 的[示例](https://github.com/fchollet/keras/blob/master/examples/neural_style_transfer.py)中. 为了使用如上的代码, 首先需要安装 keras:
 
 ```sh
 $ pip install keras
