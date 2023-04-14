@@ -3,6 +3,8 @@ import os
 import subprocess
 import sys
 
+import PIL.Image
+
 
 def call(command):
     print('$', command)
@@ -39,9 +41,17 @@ def exam_imgs_unused():
         assert v != 0, f'unused {k}'
 
 
+def exam_imgs_size():
+    imgs = glob.glob('docs/img/**/*.*', recursive=1)
+    for e in imgs:
+        i = PIL.Image.open(e)
+        assert i.size in [(480, 270), (360, 270)], f'imsize {e} {i.size[0]}x{i.size[1]}'
+
+
 def main():
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     exam_imgs_unused()
+    exam_imgs_size()
     make()
 
 
