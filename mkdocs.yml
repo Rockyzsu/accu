@@ -132,6 +132,7 @@ nav:
 - 人工智能:
         - 人工智能/Neural Style Transfer: content/ai/neural_style_transfer.md
         - 人工智能/Dlib: content/ai/dlib.md
+        - 人工智能/Stable Diffusion: content/ai/stable_diffusion.md
 - CKB:
         - CKB/Neuron 钱包: content/ckb/neuron.md
         - CKB/开发网络: content/ckb/dev.md
