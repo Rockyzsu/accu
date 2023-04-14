@@ -20,7 +20,7 @@ def make():
     call('echo -n "google.com, pub-5236818090688638, DIRECT, f08c47fec0942fa0" > site/ads.txt')
 
 
-def exam_imgs():
+def exam_imgs_unused():
     imgs = [i[4:] for i in glob.glob('docs/img/**/*.*', recursive=1)]
     docs = glob.glob('docs/content/**/*.md', recursive=1)
     docs.append('docs/index.md')
@@ -41,7 +41,7 @@ def exam_imgs():
 
 def main():
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    exam_imgs()
+    exam_imgs_unused()
     make()
 
 
