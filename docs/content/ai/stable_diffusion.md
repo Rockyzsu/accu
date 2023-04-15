@@ -1,4 +1,4 @@
-# 人工智能/Stable Diffusion
+# 人工智能/Stable Diffusion　- Rocky
 
 Stable Diffusion 是一种通过文字描述创造出图像的 AI 模型. 它是一个开源软件, 有许多人愿意在网络上免费分享他们的计算资源, 使得新手可以[在线尝试](https://stablediffusionweb.com/#demo).
 
